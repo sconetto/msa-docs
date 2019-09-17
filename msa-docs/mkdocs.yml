@@ -1,0 +1,64 @@
+# Project Information
+site_name: MSA Docs
+site_description: MSA Docs article project documentation
+site_url: http://localhost
+
+# Repository
+repo_url: https://github.com/sconetto/msa-docs
+repo_name: "msa-docs"
+
+# Copyright
+copyright: "Copyright &copy; 2019 - João Pedro Sconetto"
+
+# Configuration
+theme:
+  name: "material"
+  language: "en"
+  palette:
+    primary: "cyan"
+    accent: "amber"
+  font:
+    text: "Fira Sans"
+    code: "Fira Mono"
+
+# Customization
+extra:
+  repo_icon: "github"
+  search:
+    language: "pt, en"
+
+# MathJax Extension
+extra_javascript:
+  - "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.0.0/MathJax.js?config=TeX-MML-AM_CHTML"
+
+# Extensions
+markdown_extensions:
+  - codehilite:
+      linenums: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - footnotes
+
+# Index
+nav:
+  - Home: index.md
+  - Solution:
+      - About: project/about-rh.md
+  - Modules:
+      - Register: modules/api-register.md
+  - Interfaces:
+      - Register API Blueprint: interfaces/api-register.md

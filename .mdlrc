@@ -1,0 +1,3 @@
+# MDL Configuration
+verbose true
+show_kramdown_warnings true
