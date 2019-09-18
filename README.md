@@ -53,7 +53,7 @@ Agora crie um ambiente virtual com o seguinte comando (colocando o nome que
 deseja para o ambiente), neste exemplo usarei o nome **docs**:
 
 ```shell
-mkvirtualenv docs
+mkvirtualenv -p $(which python3) docs
 ```
 
 Para utilizá-lo:
