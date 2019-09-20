@@ -59,6 +59,13 @@ nav:
   - Solution:
       - About: project/about-rh.md
   - Modules:
-      - Register: modules/api-register.md
+      - API Auth: modules/api-auth.md
+      - API Paycheck: modules/api-paycheck.md
+      - API Register: modules/api-register.md
+      - API Vacation: modules/api-vacation.md
+      - Front Register: modules/front-register
   - Interfaces:
+      - Auth API Blueprint: interfaces/api-auth.md
+      - Paycheck API Blueprint: interfaces/api-paycheck.md
       - Register API Blueprint: interfaces/api-register.md
+      - Vacation API Blueprint: interfaces/api-vacation.md
