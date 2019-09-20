@@ -77,6 +77,6 @@ cd msa-docs/
 mkdocs serve
 ```
 
-Acesse em um navegador o endereço http://127.0.0.1:8000 e seu servidor local do
+Acesse em um navegador o endereço `http://127.0.0.1:8000` e seu servidor local do
 MkDocs deve estar funcionando com _live reloading_ para que você verifique as
 modificações durante o desenvolvimento.
