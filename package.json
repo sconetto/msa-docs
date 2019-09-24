@@ -1,0 +1,29 @@
+{
+  "name": "msa-docs",
+  "version": "0.0.1",
+  "description": "Microservices Documentation Framework - System test for MSA article",
+  "main": "msa-docs/mkdocs.yml",
+  "dependencies": {},
+  "devDependencies": {
+    "standard-version": "^7.0.0"
+  },
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 1",
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sconetto/msa-docs.git"
+  },
+  "keywords": [
+    "docs",
+    "microservices",
+    "article"
+  ],
+  "author": "João Pedro Sconetto",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/sconetto/msa-docs/issues"
+  },
+  "homepage": "https://github.com/sconetto/msa-docs#readme"
+}
