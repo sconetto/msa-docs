@@ -1,4 +1,4 @@
-# FrontEnd RH - Cadastro
+# App RH - Cadastro
 
 ![Badge](https://img.shields.io/badge/example-ok-brightgreen?style=flat-square)
 ![Badge](https://img.shields.io/badge/build-failing-red?style=flat-square)

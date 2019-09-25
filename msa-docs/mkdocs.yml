@@ -57,7 +57,8 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Solution:
-      - About: project/about-rh.md
+      - About: solution/about-rh.md
+      - Architecture: solution/architecture.md
   - Modules:
       - API Auth: modules/api-auth.md
       - API Paycheck: modules/api-paycheck.md
