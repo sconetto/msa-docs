@@ -31,6 +31,44 @@ A Session object has the following attributes:
 - email
 - password
 
+### Create a new Session [POST]
+
+You may create a new session using this action. It takes a JSON object containing the user identifer and his password.
+
+- email (string) - The user e-mail
+- password (string) - The user password for authentication
+
+- Request (application/json)
+
+        {
+            "email": "miles.morales@email.com"
+            "password": "spidermanrules!"
+        }
+
+- Response 201 (application/json)
+
+  - Body
+
+         {
+            "access_token":eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im1pbGVzLm1vcmFsZXNAZW1haWwuY29tIiwicGFzc3dvcmQiOiJzcGlkZXJtYW5ydWxlcyEiLCJqdGkiOiJmZTllN2Y1NC0zNTIzLTRhYTgtOTg5Yi1kYzhhM2RkYjA3ODYiLCJpYXQiOjE1Njk1MDg3NDQsImV4cCI6MTU2OTUxMjM0NH0.K-rncSvY9v-x2tQC0cIekhw4yqGfW3i4MEyIS1ljn54
+         }
+
+- Response 401 (application/json)
+
+  - Body
+
+         {
+            "message": "You're not allowed to perform this action"
+         }
+
+- Response 404 (application/json)
+
+  - Body
+
+         {
+            "message": "User not found!"
+         }
+
 ## User Session
 
 Resources related to users in the API
@@ -70,7 +108,7 @@ A User object has the following attributes:
 You may create a new user (if you have this permission) using this action. It takes a JSON object containing a user and all his infos. On this action you don't have to add `{user_id}` in the URL.
 
 - name (string) - The user name
-- email (string) - The user email
+- email (string) - The user e-mail
 - groups (array[string]) - The list of groups which the user will have access
 
 - Request (application/json)
@@ -120,7 +158,7 @@ You may create a new user (if you have this permission) using this action. It ta
 You may update a user info (if you are the user or if you have this permission) using this action. It takes a JSON object containing a user and all the infos you want to update.
 
 - name (string) - The user name (optional)
-- email (string) - The user email (optional)
+- email (string) - The user e-mail (optional)
 - groups (array[string]) - The list of groups which the user will have access (optinal)
 
 - Request (application/json)

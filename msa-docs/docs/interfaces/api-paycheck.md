@@ -1,11 +1,11 @@
 FORMAT: 1A
 HOST: http://locahost/api-paycheck/
 
-# Polls
+# Paycheck
 
-Polls is a simple API allowing consumers to view polls and vote in them. You can view this documentation over at [Apiary](http://docs.pollsapi.apiary.io).
+Paycheck is a API used to manage all workers paycheck, benefits and others questions related to wage. You can view his documentation over at [API Paycheck Module](../../modules/api-paycheck).
 
-# Polls API Root [/]
+# Paycheck API Root [/]
 
 This resource does not have any attributes. Instead it offers the initial API affordances in the form of the links in the JSON body.
 
@@ -16,160 +16,195 @@ It is recommend to follow the “url” link values, [Link](https://tools.ietf.o
 - Response 200 (application/json)
 
         {
-            "questions_url": "/questions"
+            "paycheck": "/payroll"
         }
 
-## Group Question
+## Group Payroll
 
 Resources related to questions in the API.
 
-## Question [/questions/{question_id}]
+## Payroll [/payroll/{year}/{month}/{payroll_number}{?{filter}={value}&}]
 
-A Question object has the following attributes:
+A Payroll object has the following attributes:
 
-- question
-- published_at - An ISO8601 date when the question was published.
-- url
-- choices - An array of Choice objects.
+- payroll_number
+- year
+- month
+- status
+- employees
+- payment
 
 - Parameters
-  - question_id: 1 (required, number) - ID of the Question in form of an integer
+  - payroll_number: 1 (optional, number) - Number of the Payroll in form of an integer
+  - year: 2019 (optional, number) - The year of the Payroll
+  - month: 2 (optional, number) - The month of the Payroll
+  - status: true (optional, boolean) - The status of the paycheck (true if active, false otherwise)
 
-### View a Questions Detail [GET]
+### View a Payroll Details [GET]
+
+- Request (URL)
+
+        URL: /payroll/2019/8/1?status=true
 
 - Response 200 (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "published_at": "2014-11-11T08:40:51.620Z",
-            "url": "/questions/1",
-            "choices": [
-                {
-                    "choice": "Swift",
-                    "url": "/questions/1/choices/1",
-                    "votes": 2048
-                }, {
-                    "choice": "Python",
-                    "url": "/questions/1/choices/2",
-                    "votes": 1024
-                }, {
-                    "choice": "Objective-C",
-                    "url": "/questions/1/choices/3",
-                    "votes": 512
-                }, {
-                    "choice": "Ruby",
-                    "url": "/questions/1/choices/4",
-                    "votes": 256
-                }
+            "payroll_number": 1,
+            "year": 2019,
+            "month": 8,
+            "status": true,
+            "employees": [
+              "Miles Morales",
+              "Peter Parker"
+            ],
+            "payment": [
+              1.99,
+              1.99
             ]
         }
 
-## Choice [/questions/{question_id}/choices/{choice_id}]
+### Create a new Payroll [POST]
 
-- Parameters
-  - question_id: 1 (required, number) - ID of the Question in form of an integer
-  - choice_id: 1 (required, number) - ID of the Choice in form of an integer
+You may create a new payroll (if you have this permission) using this action. It takes a URL with the creation parameters. If there is a payroll for the given year and month, a new one will be created and the last one will be deactivated.
 
-### Vote on a Choice [POST]
+- year (number) - The year of the Payroll
+- month (string) - The month of the Payroll
 
-This action allows you to vote on a question's choice.
+- Request (URL)
 
-- Response 201
-
-  - Headers
-
-          Location: /questions/1
-
-## Questions Collection [/questions{?page}]
-
-- Parameters
-  - page: 1 (optional, number) - The page of questions to return
-
-### List All Questions [GET]
+      URL: /payroll/2019/9
 
 - Response 200 (application/json)
 
-  - Headers
+        {
+            "payroll_number": 1,
+            "year": 2019,
+            "month": 9,
+            "status": true,
+            "employees": null,
+            "payment": null,
+        }
 
-          Link: </questions?page=2>; rel="next"
+- Response 200 (application/json)
+
+        {
+            "new_payroll": {
+              "payroll_number": 2,
+              "year": 2019,
+              "month": 9,
+              "status": true,
+              "employees": null,
+              "payment": null,
+            },
+            "old_payroll": {
+              "payroll_number": 1,
+              "year": 2019,
+              "month": 9,
+              "status": true,
+              "employees": [
+                "Miles Morales",
+                "Peter Parker"
+             ],
+              "payment": [
+                1.99,
+                1.99
+              ]
+            }
+
+        }
+
+- Response 401 (application/json)
 
   - Body
 
-          [
-              {
-                  "question": "Favourite programming language?",
-                  "published_at": "2014-11-11T08:40:51.620Z",
-                  "url": "/questions/1",
-                  "choices": [
-                      {
-                          "choice": "Swift",
-                          "url": "/questions/1/choices/1",
-                          "votes": 2048
-                      }, {
-                          "choice": "Python",
-                          "url": "/questions/1/choices/2",
-                          "votes": 1024
-                      }, {
-                          "choice": "Objective-C",
-                          "url": "/questions/1/choices/3",
-                          "votes": 512
-                      }, {
-                          "choice": "Ruby",
-                          "url": "/questions/1/choices/4",
-                          "votes": 256
-                      }
-                  ]
-              }
-          ]
+         {
+            "message": "You're not allowed to perform this action"
+         }
 
-### Create a New Question [POST]
+### Update information on the Payroll [PATCH]
 
-You may create your own question using this action. It takes a JSON object containing a question and a collection of answers in the form of choices.
+You may update the payroll (if you have this permission) using this action. It takes a JSON with the objects you want to update. The updatable parameters are the following (if the objects is already fullfiled it will be overwrited):
 
-- question (string) - The question
-- choices (array[string]) - A collection of choices.
+- status (boolean) - The status of the paycheck
+- employees (array[string]) - The list of employees that will be payed on that payroll
+- payment (array[float]) - The value of the employees salary
+
+- Request (URL)
+
+      URL: /payroll/2019/9/2
 
 - Request (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
+            "employees": [
+              "Steve Rogers",
+              "Miles Morales",
+              "Peter Parker"
+            ],
+            "payment: [
+              3.99,
+              1.99,
+              1.99
             ]
         }
 
-- Response 201 (application/json)
+- Response 200 (application/json)
 
-  - Headers
+        {
+            "payroll_number": 1,
+            "year": 2019,
+            "month": 9,
+            "status": true,
+            "employees": [
+              "Steve Rogers",
+              "Miles Morales",
+              "Peter Parker"
+            ],
+            "payment": [
+              3.99,
+              1.99,
+              1.99
+            ]
+        }
 
-          Location: /questions/2
+- Response 401 (application/json)
 
   - Body
 
-          {
-              "question": "Favourite programming language?",
-              "published_at": "2014-11-11T08:40:51.620Z",
-              "url": "/questions/2",
-              "choices": [
-                  {
-                      "choice": "Swift",
-                      "url": "/questions/2/choices/1",
-                      "votes": 0
-                  }, {
-                      "choice": "Python",
-                      "url": "/questions/2/choices/2",
-                      "votes": 0
-                  }, {
-                      "choice": "Objective-C",
-                      "url": "/questions/2/choices/3",
-                      "votes": 0
-                  }, {
-                      "choice": "Ruby",
-                      "url": "/questions/2/choices/4",
-                      "votes": 0
-                  }
-              ]
-          }
+         {
+            "message": "You're not allowed to perform this action"
+         }
+
+### Delete Payroll [DELETE]
+
+You may create a new payroll (if you have this permission) using this action. It takes a URL with the search to delete parameters. Caution, this action is irreversible.
+
+- Request (URL)
+
+      URL: /payroll/2019/9/2
+
+      OR
+
+      URL: /payroll/2019?month=9&status=false
+
+- Response 200 (application/json)
+
+  - Body
+
+         {
+            "deleted_payrolls": [2]
+         }
+
+         OR
+
+         {
+           "deleted_payrolls": [2, 3]
+         }
+
+- Response 401 (application/json)
+
+  - Body
+
+         {
+            "message": "You're not allowed to perform this action"
+         }

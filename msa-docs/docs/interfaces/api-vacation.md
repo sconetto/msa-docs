@@ -1,11 +1,11 @@
 FORMAT: 1A
 HOST: http://locahost/api-vacation/
 
-# Polls
+# Vacation
 
-Polls is a simple API allowing consumers to view polls and vote in them. You can view this documentation over at [Apiary](http://docs.pollsapi.apiary.io).
+Vacation is a simple API to manage employees vacations and vacation scheduling. You can view this documentation over at [API Vacation Module](../../modules/api-vacation).
 
-# Polls API Root [/]
+# Vacation API Root [/]
 
 This resource does not have any attributes. Instead it offers the initial API affordances in the form of the links in the JSON body.
 
@@ -16,10 +16,11 @@ It is recommend to follow the “url” link values, [Link](https://tools.ietf.o
 - Response 200 (application/json)
 
         {
-            "questions_url": "/questions"
+            "vacation": "/vacation"
+            "scheduling": "/schedule"
         }
 
-## Group Question
+## Group Vacation
 
 Resources related to questions in the API.
 

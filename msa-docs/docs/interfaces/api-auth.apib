@@ -1,11 +1,11 @@
 FORMAT: 1A
 HOST: http://locahost/api-auth/
 
-# Polls
+# Auth
 
-Polls is a simple API allowing consumers to view polls and vote in them. You can view this documentation over at [Apiary](http://docs.pollsapi.apiary.io).
+Auth is a API using Keycloack and JWT to authenticate and manage users in the RH App Domain. You can view his documentation over at [API Auth Module](../../modules/api-auth).
 
-# Polls API Root [/]
+# Auth API Root [/]
 
 This resource does not have any attributes. Instead it offers the initial API affordances in the form of the links in the JSON body.
 
@@ -16,128 +16,110 @@ It is recommend to follow the “url” link values, [Link](https://tools.ietf.o
 - Response 200 (application/json)
 
         {
-            "questions_url": "/questions"
+            "session": "/session"
+            "user": "/user"
         }
 
-## Group Question
+## Group Session
 
-Resources related to questions in the API.
+Resources related to sessions in the API.
 
-## Question [/questions/{question_id}]
+## Session [/session]
 
-A Question object has the following attributes:
+A Session object has the following attributes:
 
-- question
-- published_at - An ISO8601 date when the question was published.
-- url
-- choices - An array of Choice objects.
+- email
+- password
 
-- Parameters
-  - question_id: 1 (required, number) - ID of the Question in form of an integer
+### Create a new Session [POST]
 
-### View a Questions Detail [GET]
+You may create a new session using this action. It takes a JSON object containing the user identifer and his password.
 
-- Response 200 (application/json)
-
-        {
-            "question": "Favourite programming language?",
-            "published_at": "2014-11-11T08:40:51.620Z",
-            "url": "/questions/1",
-            "choices": [
-                {
-                    "choice": "Swift",
-                    "url": "/questions/1/choices/1",
-                    "votes": 2048
-                }, {
-                    "choice": "Python",
-                    "url": "/questions/1/choices/2",
-                    "votes": 1024
-                }, {
-                    "choice": "Objective-C",
-                    "url": "/questions/1/choices/3",
-                    "votes": 512
-                }, {
-                    "choice": "Ruby",
-                    "url": "/questions/1/choices/4",
-                    "votes": 256
-                }
-            ]
-        }
-
-## Choice [/questions/{question_id}/choices/{choice_id}]
-
-- Parameters
-  - question_id: 1 (required, number) - ID of the Question in form of an integer
-  - choice_id: 1 (required, number) - ID of the Choice in form of an integer
-
-### Vote on a Choice [POST]
-
-This action allows you to vote on a question's choice.
-
-- Response 201
-
-  - Headers
-
-          Location: /questions/1
-
-## Questions Collection [/questions{?page}]
-
-- Parameters
-  - page: 1 (optional, number) - The page of questions to return
-
-### List All Questions [GET]
-
-- Response 200 (application/json)
-
-  - Headers
-
-          Link: </questions?page=2>; rel="next"
-
-  - Body
-
-          [
-              {
-                  "question": "Favourite programming language?",
-                  "published_at": "2014-11-11T08:40:51.620Z",
-                  "url": "/questions/1",
-                  "choices": [
-                      {
-                          "choice": "Swift",
-                          "url": "/questions/1/choices/1",
-                          "votes": 2048
-                      }, {
-                          "choice": "Python",
-                          "url": "/questions/1/choices/2",
-                          "votes": 1024
-                      }, {
-                          "choice": "Objective-C",
-                          "url": "/questions/1/choices/3",
-                          "votes": 512
-                      }, {
-                          "choice": "Ruby",
-                          "url": "/questions/1/choices/4",
-                          "votes": 256
-                      }
-                  ]
-              }
-          ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON object containing a question and a collection of answers in the form of choices.
-
-- question (string) - The question
-- choices (array[string]) - A collection of choices.
+- email (string) - The user e-mail
+- password (string) - The user password for authentication
 
 - Request (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
+            "email": "miles.morales@email.com"
+            "password": "spidermanrules!"
+        }
+
+- Response 201 (application/json)
+
+  - Body
+
+         {
+            "access_token":eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im1pbGVzLm1vcmFsZXNAZW1haWwuY29tIiwicGFzc3dvcmQiOiJzcGlkZXJtYW5ydWxlcyEiLCJqdGkiOiJmZTllN2Y1NC0zNTIzLTRhYTgtOTg5Yi1kYzhhM2RkYjA3ODYiLCJpYXQiOjE1Njk1MDg3NDQsImV4cCI6MTU2OTUxMjM0NH0.K-rncSvY9v-x2tQC0cIekhw4yqGfW3i4MEyIS1ljn54
+         }
+
+- Response 401 (application/json)
+
+  - Body
+
+         {
+            "message": "You're not allowed to perform this action"
+         }
+
+- Response 404 (application/json)
+
+  - Body
+
+         {
+            "message": "User not found!"
+         }
+
+## User Session
+
+Resources related to users in the API
+
+## User [/user/{user_id}]
+
+A User object has the following attributes:
+
+- name
+- created_at - A RFC3339 date when the user was created.
+- updated_at - A RFC339 date when the user was updated.
+- email - A string with user e-mail
+- groups - An array of groups identifiers which user has access.
+- url
+
+- Parameters
+  - user_id: 1 (required [some routes], uuid) - ID of the User in form of an UUID
+
+### View a User Detail [GET]
+
+- Response 200 (application/json)
+
+        {
+            "name": "Peter Parker",
+            "created_at": "2014-11-11T08:40:51.620Z",
+            "updated_at": "2018-08-21T21:16:09.712Z",
+            "email": "peter.parker@email.com",
+            "groups": [
+              "worker",
+              "heroes"
+            ]
+            "url": "/user/83883e79-65f1-42bc-82ce-33615b47fcca",
+        }
+
+### Create a new User [POST]
+
+You may create a new user (if you have this permission) using this action. It takes a JSON object containing a user and all his infos. On this action you don't have to add `{user_id}` in the URL.
+
+- name (string) - The user name
+- email (string) - The user e-mail
+- groups (array[string]) - The list of groups which the user will have access
+
+- Request (application/json)
+
+        {
+            "name": "Miles Morales",
+            "email": "miles.morales@email.com"
+            "groups": [
+                "workers",
+                "heroes",
+                "admins"
             ]
         }
 
@@ -145,31 +127,87 @@ You may create your own question using this action. It takes a JSON object conta
 
   - Headers
 
-          Location: /questions/2
+         Location: /user/ad609b8d-ae9b-4487-bff4-8b1f995a323d
 
   - Body
 
-          {
-              "question": "Favourite programming language?",
-              "published_at": "2014-11-11T08:40:51.620Z",
-              "url": "/questions/2",
-              "choices": [
-                  {
-                      "choice": "Swift",
-                      "url": "/questions/2/choices/1",
-                      "votes": 0
-                  }, {
-                      "choice": "Python",
-                      "url": "/questions/2/choices/2",
-                      "votes": 0
-                  }, {
-                      "choice": "Objective-C",
-                      "url": "/questions/2/choices/3",
-                      "votes": 0
-                  }, {
-                      "choice": "Ruby",
-                      "url": "/questions/2/choices/4",
-                      "votes": 0
-                  }
-              ]
+         {
+           "name": "Miles Morales",
+           "created_at": "2019-09-25T12:01:41.091Z",
+           "updated_at": "2019-09-25T12:01:41.091Z",
+           "email": "miles.morales@email.com",
+           "groups": [
+             "worker",
+             "heroes",
+             "admins"
+           ]
+           "url": "/user/ad609b8d-ae9b-4487-bff4-8b1f995a323d",
+
+    }
+
+- Response 401 (application/json)
+
+  - Body
+
+         {
+            "message": "You're not allowed to perform this action"
+         }
+
+### Update a User [PATCH]
+
+You may update a user info (if you are the user or if you have this permission) using this action. It takes a JSON object containing a user and all the infos you want to update.
+
+- name (string) - The user name (optional)
+- email (string) - The user e-mail (optional)
+- groups (array[string]) - The list of groups which the user will have access (optinal)
+
+- Request (application/json)
+
+        {
+            "groups": [
+                "workers",
+                "heroes"
+            ]
+        }
+
+- Response 201 (application/json)
+
+  - Headers
+
+         Location: /user/ad609b8d-ae9b-4487-bff4-8b1f995a323d
+
+  - Body
+
+         {
+            "name": "Miles Morales",
+            "created_at": "2019-09-25T12:01:41.091Z",
+            "updated_at": "2019-09-26T08:15:38.920Z",
+            "email": "miles.morales@email.com",
+            "groups": [
+               "worker",
+               "heroes"
+            ]
+            "url": "/user/ad609b8d-ae9b-4487-bff4-8b1f995a323d",
           }
+
+- Response 401 (application/json)
+
+  - Body
+
+         {
+            "message": "You're not allowed to perform this action"
+         }
+
+### Remove a User [DELETE]
+
+You may remove a user (if you have this permission) using this action.
+
+- Response 200
+
+- Response 401
+
+  - Body
+
+         {
+            "message": "You're not allowed to perform this action"
+         }
