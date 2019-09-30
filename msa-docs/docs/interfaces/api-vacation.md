@@ -17,160 +17,119 @@ It is recommend to follow the “url” link values, [Link](https://tools.ietf.o
 
         {
             "vacation": "/vacation"
-            "scheduling": "/schedule"
         }
 
 ## Group Vacation
 
 Resources related to questions in the API.
 
-## Question [/questions/{question_id}]
+## Vacation [/vacation/{year}/{month}]
 
 A Question object has the following attributes:
 
-- question
-- published_at - An ISO8601 date when the question was published.
-- url
-- choices - An array of Choice objects.
+- year - An integer representing the year
+- month - An integer representing the month
+- number_employees - An integer representing how many employees have vacation
+- employees - An array of Employees objects with vacation info
 
 - Parameters
-  - question_id: 1 (required, number) - ID of the Question in form of an integer
+  - year: 2019 (required, number) - Given vacation year
+  - month: 9 (required, number) - Given vacation month
 
-### View a Questions Detail [GET]
+### View a Vacation Detail [GET]
 
 - Response 200 (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "published_at": "2014-11-11T08:40:51.620Z",
-            "url": "/questions/1",
-            "choices": [
-                {
-                    "choice": "Swift",
-                    "url": "/questions/1/choices/1",
-                    "votes": 2048
-                }, {
-                    "choice": "Python",
-                    "url": "/questions/1/choices/2",
-                    "votes": 1024
-                }, {
-                    "choice": "Objective-C",
-                    "url": "/questions/1/choices/3",
-                    "votes": 512
-                }, {
-                    "choice": "Ruby",
-                    "url": "/questions/1/choices/4",
-                    "votes": 256
-                }
+            "year": 2019,
+            "month": "september",
+            "number_employees": 2,
+            "employees": [
+              {
+                "register": 1,
+                "name": "Peter Parker",
+                "start": "2019-09-01",
+                "end": "2019-09-15"
+              },
+              {
+                "register": 2,
+                "name": "Miles Morales",
+                "start": "2019-09-15",
+                "end": "2019-09-30"
+              }
             ]
         }
 
-## Choice [/questions/{question_id}/choices/{choice_id}]
+### Create/Update a Employee Vacation [POST]
 
-- Parameters
-  - question_id: 1 (required, number) - ID of the Question in form of an integer
-  - choice_id: 1 (required, number) - ID of the Choice in form of an integer
+You may create/update a employee vacation (if you have this permission) using this action. It takes a JSON object containing a employee and all vacation infos. If the employee with the given register already exist this action will override the information. The employee-vacation object have the following structure.
 
-### Vote on a Choice [POST]
-
-This action allows you to vote on a question's choice.
-
-- Response 201
-
-  - Headers
-
-          Location: /questions/1
-
-## Questions Collection [/questions{?page}]
-
-- Parameters
-  - page: 1 (optional, number) - The page of questions to return
-
-### List All Questions [GET]
-
-- Response 200 (application/json)
-
-  - Headers
-
-          Link: </questions?page=2>; rel="next"
-
-  - Body
-
-          [
-              {
-                  "question": "Favourite programming language?",
-                  "published_at": "2014-11-11T08:40:51.620Z",
-                  "url": "/questions/1",
-                  "choices": [
-                      {
-                          "choice": "Swift",
-                          "url": "/questions/1/choices/1",
-                          "votes": 2048
-                      }, {
-                          "choice": "Python",
-                          "url": "/questions/1/choices/2",
-                          "votes": 1024
-                      }, {
-                          "choice": "Objective-C",
-                          "url": "/questions/1/choices/3",
-                          "votes": 512
-                      }, {
-                          "choice": "Ruby",
-                          "url": "/questions/1/choices/4",
-                          "votes": 256
-                      }
-                  ]
-              }
-          ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON object containing a question and a collection of answers in the form of choices.
-
-- question (string) - The question
-- choices (array[string]) - A collection of choices.
+- register (integer) - The employee register
+- name (string) - The employee name
+- start (date) - The start date of the employee vacation
+- end (date) - The end date of the employee vacation
 
 - Request (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "register": 3
+            "name": "Tony Stark",
+            "start": "2019-09-01",
+            "end": "2019-09-30"
         }
 
 - Response 201 (application/json)
 
   - Headers
 
-          Location: /questions/2
+         Location: /vacation/2019/9
 
   - Body
 
-          {
-              "question": "Favourite programming language?",
-              "published_at": "2014-11-11T08:40:51.620Z",
-              "url": "/questions/2",
-              "choices": [
-                  {
-                      "choice": "Swift",
-                      "url": "/questions/2/choices/1",
-                      "votes": 0
-                  }, {
-                      "choice": "Python",
-                      "url": "/questions/2/choices/2",
-                      "votes": 0
-                  }, {
-                      "choice": "Objective-C",
-                      "url": "/questions/2/choices/3",
-                      "votes": 0
-                  }, {
-                      "choice": "Ruby",
-                      "url": "/questions/2/choices/4",
-                      "votes": 0
-                  }
-              ]
-          }
+         {
+            "year": 2019,
+            "month": "september",
+            "number_employees": 3
+        }
+
+- Response 401 (application/json)
+
+  - Body
+
+         {
+            "message": "You're not allowed to perform this action"
+         }
+
+### Remove a Employee Vacation
+
+You may remove a employee vacation (if you have this permission) using this action. It takes a JSON object containing a employee register. The employee-vacation object have the following structure.
+
+- register (integer or array[integer]) - The employee register
+
+- Request (application/json)
+
+        {
+            "register": [2, 3]
+        }
+
+- Response 201 (application/json)
+
+  - Headers
+
+         Location: /vacation/2019/9
+
+  - Body
+
+         {
+            "year": 2019,
+            "month": "september",
+            "number_employees": 1
+        }
+
+- Response 401 (application/json)
+
+  - Body
+
+         {
+            "message": "You're not allowed to perform this action"
+         }
