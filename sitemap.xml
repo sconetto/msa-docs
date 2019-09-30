@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+     <loc>http://localhost/</loc>
+     <lastmod>2019-09-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://localhost/project/about-rh/</loc>
+     <lastmod>2019-09-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://localhost/modules/api-register/</loc>
+     <lastmod>2019-09-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://localhost/interfaces/api-register/</loc>
+     <lastmod>2019-09-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+</urlset>
