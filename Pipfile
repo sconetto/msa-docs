@@ -10,6 +10,7 @@ mkdocs = "==1.0.4"
 mkdocs-material = "==4.4.2"
 pymdown-extensions = "==6.1"
 pygments = "==2.4.2"
+mdx-truly-sane-lists = "==1.2"
 
 [requires]
 python_version = "3.7"

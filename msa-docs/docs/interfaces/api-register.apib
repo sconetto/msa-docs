@@ -1,11 +1,11 @@
 FORMAT: 1A
 HOST: http://locahost/api-register/
 
-# Polls
+# Register
 
-Polls is a simple API allowing consumers to view polls and vote in them. You can view this documentation over at [Apiary](http://docs.pollsapi.apiary.io).
+Register is a simple API to manage employees. You can view this documentation over at [API Vacation Module](../../modules/api-register).
 
-# Polls API Root [/]
+# Register API Root [/]
 
 This resource does not have any attributes. Instead it offers the initial API affordances in the form of the links in the JSON body.
 
@@ -13,163 +13,280 @@ It is recommend to follow the “url” link values, [Link](https://tools.ietf.o
 
 ## Retrieve the Entry Point [GET]
 
-+ Response 200 (application/json)
+- Response 200 (application/json)
 
         {
-            "questions_url": "/questions"
+            "employee": "/employee",
+            "relative": "/relative"
         }
 
-## Group Question
+## Group Employee
 
-Resources related to questions in the API.
+Resources related to employees in the API.
 
-## Question [/questions/{question_id}]
+## Employee [/employee/{register}]
 
-A Question object has the following attributes:
+A Employee object has the following attributes:
 
-+ question
-+ published_at - An ISO8601 date when the question was published.
-+ url
-+ choices - An array of Choice objects.
+- register
+- hired_at - An RFC3339 date when the employee was hired.
+- fired_at - An RFC3339 date when the employee was fired, if don't null.
+- name - The name of the employee
+- position - The name of the employee position
+- gross_salary - The gross amount of the employee salary in form of a float
 
-+ Parameters
-    + question_id: 1 (required, number) - ID of the Question in form of an integer
+- Parameters
+  - register: 1 (required, number) - ID of the Employee in form of an integer
 
-### View a Questions Detail [GET]
+### View a Employee Detail [GET]
 
-+ Response 200 (application/json)
+- Response 200 (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "published_at": "2014-11-11T08:40:51.620Z",
-            "url": "/questions/1",
-            "choices": [
-                {
-                    "choice": "Swift",
-                    "url": "/questions/1/choices/1",
-                    "votes": 2048
-                }, {
-                    "choice": "Python",
-                    "url": "/questions/1/choices/2",
-                    "votes": 1024
-                }, {
-                    "choice": "Objective-C",
-                    "url": "/questions/1/choices/3",
-                    "votes": 512
-                }, {
-                    "choice": "Ruby",
-                    "url": "/questions/1/choices/4",
-                    "votes": 256
-                }
-            ]
+            "register": 1,
+            "hired_at":  "1962-08-15T08:00:00.000Z",
+            "fired_at": null,
+            "name": "Peter Parker",
+            "position": "Friendly Neighborhood",
+            "gross_salary": 1.99
         }
 
-## Choice [/questions/{question_id}/choices/{choice_id}]
+### Hire a New Employee [POST]
 
-+ Parameters
-    + question_id: 1 (required, number) - ID of the Question in form of an integer
-    + choice_id: 1 (required, number) - ID of the Choice in form of an integer
+You may hire a new employee (if you have this permission) using this action. It takes a JSON object containing a employee and his infos. On this action you don't have to add `{register}` in the URL.
 
-### Vote on a Choice [POST]
+- name (string) - The employee name
+- position (string) - The employee position
+- gross_salary (float) - The employee gross salary
 
-This action allows you to vote on a question's choice.
-
-+ Response 201
-
-    + Headers
-
-            Location: /questions/1
-
-## Questions Collection [/questions{?page}]
-
-+ Parameters
-    + page: 1 (optional, number) - The page of questions to return
-
-### List All Questions [GET]
-
-+ Response 200 (application/json)
-
-    + Headers
-
-            Link: </questions?page=2>; rel="next"
-
-    + Body
-
-            [
-                {
-                    "question": "Favourite programming language?",
-                    "published_at": "2014-11-11T08:40:51.620Z",
-                    "url": "/questions/1",
-                    "choices": [
-                        {
-                            "choice": "Swift",
-                            "url": "/questions/1/choices/1",
-                            "votes": 2048
-                        }, {
-                            "choice": "Python",
-                            "url": "/questions/1/choices/2",
-                            "votes": 1024
-                        }, {
-                            "choice": "Objective-C",
-                            "url": "/questions/1/choices/3",
-                            "votes": 512
-                        }, {
-                            "choice": "Ruby",
-                            "url": "/questions/1/choices/4",
-                            "votes": 256
-                        }
-                    ]
-                }
-            ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON object containing a question and a collection of answers in the form of choices.
-
-+ question (string) - The question
-+ choices (array[string]) - A collection of choices.
-
-+ Request (application/json)
+- Request (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "name": "Nick Fury",
+            "position": "SHIELD Leader",
+            "gross_salary": 99999.99
         }
 
-+ Response 201 (application/json)
+- Response 201 (application/json)
 
-    + Headers
+  - Headers
 
-            Location: /questions/2
+         Location: /employee/4
 
-    + Body
+  - Body
 
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2014-11-11T08:40:51.620Z",
-                "url": "/questions/2",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "url": "/questions/2/choices/1",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "url": "/questions/2/choices/2",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "url": "/questions/2/choices/3",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "url": "/questions/2/choices/4",
-                        "votes": 0
-                    }
-                ]
-            }
+         {
+           "register": 4
+           "name": "Nick Fury",
+           "hired_at": "2019-09-30T11:30:41.789Z",
+           "fired_at": null,
+           "position": "SHIELD Leader",
+           "gross_salary": 99999.99
+         }
+
+- Response 401 (application/json)
+
+  - Body
+
+         {
+            "message": "You're not allowed to perform this action"
+         }
+
+### Update a Employee [PATCH]
+
+You may update a employee information (if you have this permission) using this action. It takes a JSON object containing a employee and the info that you want to update.
+
+- name (string) - The employee name
+- position (string) - The employee position
+- gross_salary (float) - The employee gross salary
+
+- Request (application/json)
+
+        {
+            "position": "SHIELD Chief",
+            "gross_salary": 9999999.99
+        }
+
+- Response 201 (application/json)
+
+  - Headers
+
+         Location: /employee/4
+
+  - Body
+
+         {
+           "register": 4,
+           "name": "Nick Fury",
+           "hired_at": "2019-09-30T11:30:41.789Z",
+           "fired_at": null,
+           "position": "SHIELD Chief",
+           "gross_salary": 9999999.99
+         }
+
+- Response 401 (application/json)
+
+  - Body
+
+         {
+            "message": "You're not allowed to perform this action"
+         }
+
+### Fire a Employee [DELETE]
+
+You may fire a employee (if you have this permission) using this action. His information will remain in the system but the `fired_at` attribute will receive the date of the action.
+
+- Response 200
+
+  - Headers
+
+         Location: /employee/4
+
+  - Body
+
+         {
+           "register": 4,
+           "name": "Nick Fury",
+           "hired_at": "2019-09-30T11:30:41.789Z",
+           "fired_at": "2020-09-30T08:01:12.812Z",
+           "position": "SHIELD Chief",
+           "gross_salary": 9999999.99
+         }
+
+- Response 401
+
+  - Body
+
+         {
+            "message": "You're not allowed to perform this action"
+         }
+
+## Group Relative
+
+Resources related to relatives in the API.
+
+## Relative [/relative/{employee_register}/{id}]
+
+A Relative object has the following attributes:
+
+- employee_register
+- id
+- name
+- kinship
+
+- Parameters
+  - employee_register: 1 (required, number) - ID of the employee which is related to the relative in form of an integer
+  - id: 1 (required, number) - ID of the relative in form of an integer
+
+### View a Relative Detail [GET]
+
+- Response 200 (application/json)
+
+        {
+            "employee_register": 1,
+            "id": 1,
+            "name": "May Parker",
+            "kinship": "Aunt"
+        }
+
+### Add a New Relative [POST]
+
+You may add a new relative (if you have this permission) using this action. It takes a JSON object containing a relative and his infos. On this action you don't have to add the relative `{id}` in the URL, only the `{employee_register}`.
+
+- name (string) - The relative name
+- kinship (string) - The relative kinship type name
+
+- Request (application/json)
+
+        {
+            "name": "Mary Jane Watson",
+            "kinship": "Wife"
+        }
+
+- Response 201 (application/json)
+
+  - Headers
+
+         Location: /relative/1/2
+
+  - Body
+
+         {
+           "id": 2,
+           "employee_register": 1,
+           "name": "Mary Jane Watson",
+           "kinship":  "Wife"
+         }
+
+- Response 401 (application/json)
+
+  - Body
+
+         {
+            "message": "You're not allowed to perform this action"
+         }
+
+### Update a Relative [PATCH]
+
+You may update a relative information (if you have this permission) using this action. It takes a JSON object containing a relative and the info that you want to update.
+
+- name (string) - The relative name
+- kinship (string) - The relative kinship type name
+
+- Request (application/json)
+
+        {
+            "name": "Mary Jane Watson",
+            "kinship": "Ex-Wife"
+        }
+
+- Response 201 (application/json)
+
+  - Headers
+
+         Location: /relative/1/2
+
+  - Body
+
+         {
+           "id": 2,
+           "employee_register": 1,
+           "name": "Mary Jane Watson",
+           "kinship":  "Ex-Wife"
+         }
+
+- Response 401 (application/json)
+
+  - Body
+
+         {
+            "message": "You're not allowed to perform this action"
+         }
+
+### Remove a Relative [DELETE]
+
+You may remove a relative (if you have this permission) using this action.
+
+- Response 200
+
+  - Headers
+
+         Location: /relative/1
+
+  - Body
+
+         {
+           "old_value": {
+             "employee_register": 1,
+             "name": "Mary Jane Watson",
+             "kinship":  "Ex-Wife"
+           }
+         }
+
+- Response 401
+
+  - Body
+
+         {
+            "message": "You're not allowed to perform this action"
+         }
