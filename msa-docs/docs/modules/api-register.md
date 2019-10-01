@@ -1,13 +1,15 @@
-# API RH - Cadastro
+# HR System - Register API
 
 ![Badge](https://img.shields.io/badge/example-ok-brightgreen?style=flat-square)
 ![Badge](https://img.shields.io/badge/build-ok-brightgreen?style=flat-square)
 ![Badge](https://img.shields.io/badge/tests-failing-red?style=flat-square)
 ![Badge](https://img.shields.io/badge/quality-70%25-yellow?style=flat-square)
 
-Ainda assim, existem dúvidas a respeito de como a determinação clara de
-objetivos acarreta um processo de reformulação e modernização das posturas dos
-órgãos dirigentes com relação às suas atribuições. [^1]
+A API de Cadastro é responsável pela consulta e a manutenção de dados referentes
+ao cadastro dos funcionários no contexto da gestão de pessoas da organização.
+A API foi criada por necessidade do sistema de recursos humanos, mas ela foi
+projetada para poder ser utilizada por outros sistemas e serviços que necessitem
+de informações sobre o cadastro dos funcionários.
 
 ## Dependências
 
@@ -166,5 +168,3 @@ docker run -d --name api-register -e .env api-register
 
 **OBS**: Pressupõe que as configurações estão listadas no arquivo `.env`. Para
 mais configurações, opções de execução e a documentação complementar acesse [Docker](https://docs.docker.com/)
-
-[^1]: Gerado no Lero Lero
