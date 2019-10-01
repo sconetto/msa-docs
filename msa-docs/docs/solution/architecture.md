@@ -3,7 +3,7 @@
 A imagem abaixo representa arquiteturalmente como estão dispostos os componentes
 dentro da solução do sistema de RH.
 
-![Diagrama de Arquitetura](/assets/images/arch-v1.png)[^1]
+![Diagrama de Arquitetura](../../assets/images/arch-v1.png)[^1]
 
 Estão listados os componentes que estão presentes na solução e tem sua documentação
 aqui listada por:
