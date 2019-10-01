@@ -1,4 +1,4 @@
-# About RH Project
+# About HR Project
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in dapibus ipsum.
 Nam eu dignissim nulla. Pellentesque sed pretium ex. Nullam eget fermentum enim,
