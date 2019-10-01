@@ -13,7 +13,7 @@
         <meta name="description" content="MSA Docs article project documentation">
       
       
-        <link rel="canonical" href="http://localhost/interfaces/api-register/">
+        <link rel="canonical" href="http://localhost/interfaces/api-auth/">
       
       
       
@@ -40,7 +40,7 @@
     
     
       
-        <title>Register API Blueprint - MSA Docs</title>
+        <title>Auth API Blueprint - MSA Docs</title>
       
     
     
@@ -89,7 +89,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#register" tabindex="1" class="md-skip">
+      <a href="#auth" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -115,7 +115,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Register API Blueprint
+                Auth API Blueprint
               
             </span>
           
@@ -389,11 +389,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../api-auth/" title="Auth API Blueprint" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Auth API Blueprint" class="md-nav__link md-nav__link--active">
       Auth API Blueprint
     </a>
+    
   </li>
 
         
@@ -413,20 +422,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="Register API Blueprint" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../api-register/" title="Register API Blueprint" class="md-nav__link">
       Register API Blueprint
     </a>
-    
   </li>
 
         
@@ -474,12 +474,12 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/sconetto/msa-docs/edit/master/docs/interfaces/api-register.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/sconetto/msa-docs/edit/master/docs/interfaces/api-auth.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="register">Register</h1>
-<p>Register is a simple API to manage employees. You can view this documentation over at <a href="../../modules/api-register">API Vacation Module</a>.</p>
-<h1 id="register-api-root">Register API Root [/]</h1>
+                <h1 id="auth">Auth</h1>
+<p>Auth is a API using Keycloack and JWT to authenticate and manage users in the RH App Domain. You can view his documentation over at <a href="../../modules/api-auth">API Auth Module</a>.</p>
+<h1 id="auth-api-root">Auth API Root [/]</h1>
 <p>This resource does not have any attributes. Instead it offers the initial API affordances in the form of the links in the JSON body.</p>
 <p>It is recommend to follow the “url” link values, <a href="https://tools.ietf.org/html/rfc5988">Link</a> or Location headers where applicable to retrieve resources. Instead of constructing your own URLs, to keep your client decoupled from implementation details.</p>
 <h2 id="retrieve-the-entry-point-get">Retrieve the Entry Point [GET]</h2>
@@ -488,71 +488,36 @@
 2
 3
 4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="err">{</span>
-      <span class="ss">&quot;employee&quot;</span><span class="p">:</span> <span class="ss">&quot;/employee&quot;</span><span class="p">,</span>
-      <span class="ss">&quot;relative&quot;</span><span class="p">:</span> <span class="ss">&quot;/relative&quot;</span>
+      <span class="ss">&quot;session&quot;</span><span class="p">:</span> <span class="ss">&quot;/session&quot;</span>
+      <span class="ss">&quot;user&quot;</span><span class="p">:</span> <span class="ss">&quot;/user&quot;</span>
   <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
 </li>
 </ul>
-<h2 id="group-employee">Group Employee</h2>
-<p>Resources related to employees in the API.</p>
-<h2 id="employee-employeeregister">Employee [/employee/{register}]</h2>
-<p>A Employee object has the following attributes:</p>
+<h2 id="group-session">Group Session</h2>
+<p>Resources related to sessions in the API.</p>
+<h2 id="session-session">Session [/session]</h2>
+<p>A Session object has the following attributes:</p>
 <ul>
-<li>register</li>
-<li>hired_at - An RFC3339 date when the employee was hired.</li>
-<li>fired_at - An RFC3339 date when the employee was fired, if don't null.</li>
-<li>name - The name of the employee</li>
-<li>position - The name of the employee position</li>
-<li>gross_salary - The gross amount of the employee salary in form of a float</li>
+<li>email</li>
+<li>password</li>
 </ul>
+<h3 id="create-a-new-session-post">Create a new Session [POST]</h3>
+<p>You may create a new session using this action. It takes a JSON object containing the user identifer and his password.</p>
 <ul>
-<li>Parameters<ul>
-<li>register: 1 (required, number) - ID of the Employee in form of an integer</li>
-</ul>
-</li>
-</ul>
-<h3 id="view-a-employee-detail-get">View a Employee Detail [GET]</h3>
-<ul>
-<li>Response 200 (application/json)<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="err">{</span>
-      <span class="ss">&quot;register&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="ss">&quot;hired_at&quot;</span><span class="p">:</span>  <span class="ss">&quot;1962-08-15T08:00:00.000Z&quot;</span><span class="p">,</span>
-      <span class="ss">&quot;fired_at&quot;</span><span class="p">:</span> <span class="k">null</span><span class="p">,</span>
-      <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Peter Parker&quot;</span><span class="p">,</span>
-      <span class="ss">&quot;position&quot;</span><span class="p">:</span> <span class="ss">&quot;Friendly Neighborhood&quot;</span><span class="p">,</span>
-      <span class="ss">&quot;gross_salary&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">.</span><span class="mi">99</span>
-  <span class="err">}</span>
-</pre></div>
-</td></tr></table>
-
-</li>
-</ul>
-<h3 id="hire-a-new-employee-post">Hire a New Employee [POST]</h3>
-<p>You may hire a new employee (if you have this permission) using this action. It takes a JSON object containing a employee and his infos. On this action you don't have to add <code class="codehilite"><span class="err">{</span><span class="n">register</span><span class="err">}</span></code> in the URL.</p>
-<ul>
-<li>name (string) - The employee name</li>
-<li>position (string) - The employee position</li>
-<li>gross_salary (float) - The employee gross salary</li>
+<li>email (string) - The user e-mail</li>
+<li>password (string) - The user password for authentication</li>
 </ul>
 <ul>
 <li>Request (application/json)<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="err">{</span>
-      <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Nick Fury&quot;</span><span class="p">,</span>
-      <span class="ss">&quot;position&quot;</span><span class="p">:</span> <span class="ss">&quot;SHIELD Leader&quot;</span><span class="p">,</span>
-      <span class="ss">&quot;gross_salary&quot;</span><span class="p">:</span> <span class="mi">99999</span><span class="p">.</span><span class="mi">99</span>
-  <span class="err">}</span>
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="w">  </span><span class="err">{</span><span class="w"></span>
+<span class="w">      </span><span class="ss">&quot;email&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;miles.morales@email.com&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="ss">&quot;password&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;spidermanrules!&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="err">}</span><span class="w"></span>
 </pre></div>
 </td></tr></table>
 
@@ -562,27 +527,10 @@
 <li>
 <p>Response 201 (application/json)</p>
 <ul>
-<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="n">employee</span><span class="o">/</span><span class="mi">4</span>
-</pre></div>
-</td></tr></table>
-
-</li>
-</ul>
-<ul>
 <li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-   <span class="ss">&quot;register&quot;</span><span class="p">:</span> <span class="mi">4</span>
-   <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Nick Fury&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;hired_at&quot;</span><span class="p">:</span> <span class="ss">&quot;2019-09-30T11:30:41.789Z&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;fired_at&quot;</span><span class="p">:</span> <span class="k">null</span><span class="p">,</span>
-   <span class="ss">&quot;position&quot;</span><span class="p">:</span> <span class="ss">&quot;SHIELD Leader&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;gross_salary&quot;</span><span class="p">:</span> <span class="mi">99999</span><span class="p">.</span><span class="mi">99</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
+    <span class="ss">&quot;access_token&quot;</span><span class="p">:</span><span class="n">eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9</span><span class="p">.</span><span class="n">eyJlbWFpbCI6Im1pbGVzLm1vcmFsZXNAZW1haWwuY29tIiwicGFzc3dvcmQiOiJzcGlkZXJtYW5ydWxlcyEiLCJqdGkiOiJmZTllN2Y1NC0zNTIzLTRhYTgtOTg5Yi1kYzhhM2RkYjA3ODYiLCJpYXQiOjE1Njk1MDg3NDQsImV4cCI6MTU2OTUxMjM0NH0</span><span class="p">.</span><span class="n">K</span><span class="o">-</span><span class="n">rncSvY9v</span><span class="o">-</span><span class="n">x2tQC0cIekhw4yqGfW3i4MEyIS1ljn54</span>
  <span class="err">}</span>
 </pre></div>
 </td></tr></table>
@@ -607,67 +555,14 @@
 </ul>
 </li>
 </ul>
-<h3 id="update-a-employee-patch">Update a Employee [PATCH]</h3>
-<p>You may update a employee information (if you have this permission) using this action. It takes a JSON object containing a employee and the info that you want to update.</p>
-<ul>
-<li>name (string) - The employee name</li>
-<li>position (string) - The employee position</li>
-<li>gross_salary (float) - The employee gross salary</li>
-</ul>
-<ul>
-<li>Request (application/json)<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="err">{</span>
-      <span class="ss">&quot;position&quot;</span><span class="p">:</span> <span class="ss">&quot;SHIELD Chief&quot;</span><span class="p">,</span>
-      <span class="ss">&quot;gross_salary&quot;</span><span class="p">:</span> <span class="mi">9999999</span><span class="p">.</span><span class="mi">99</span>
-  <span class="err">}</span>
-</pre></div>
-</td></tr></table>
-
-</li>
-</ul>
 <ul>
 <li>
-<p>Response 201 (application/json)</p>
-<ul>
-<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="n">employee</span><span class="o">/</span><span class="mi">4</span>
-</pre></div>
-</td></tr></table>
-
-</li>
-</ul>
-<ul>
-<li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-   <span class="ss">&quot;register&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-   <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Nick Fury&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;hired_at&quot;</span><span class="p">:</span> <span class="ss">&quot;2019-09-30T11:30:41.789Z&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;fired_at&quot;</span><span class="p">:</span> <span class="k">null</span><span class="p">,</span>
-   <span class="ss">&quot;position&quot;</span><span class="p">:</span> <span class="ss">&quot;SHIELD Chief&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;gross_salary&quot;</span><span class="p">:</span> <span class="mi">9999999</span><span class="p">.</span><span class="mi">99</span>
- <span class="err">}</span>
-</pre></div>
-</td></tr></table>
-
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<p>Response 401 (application/json)</p>
+<p>Response 404 (application/json)</p>
 <ul>
 <li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
+    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;User not found!&quot;</span>
  <span class="err">}</span>
 </pre></div>
 </td></tr></table>
@@ -676,105 +571,158 @@
 </ul>
 </li>
 </ul>
-<h3 id="fire-a-employee-delete">Fire a Employee [DELETE]</h3>
-<p>You may fire a employee (if you have this permission) using this action. His information will remain in the system but the <code class="codehilite"><span class="n">fired_at</span></code> attribute will receive the date of the action.</p>
+<h2 id="user-session">User Session</h2>
+<p>Resources related to users in the API</p>
+<h2 id="user-useruser_id">User [/user/{user_id}]</h2>
+<p>A User object has the following attributes:</p>
 <ul>
-<li>
-<p>Response 200</p>
-<ul>
-<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="n">employee</span><span class="o">/</span><span class="mi">4</span>
-</pre></div>
-</td></tr></table>
-
-</li>
-</ul>
-<ul>
-<li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-   <span class="ss">&quot;register&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-   <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Nick Fury&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;hired_at&quot;</span><span class="p">:</span> <span class="ss">&quot;2019-09-30T11:30:41.789Z&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;fired_at&quot;</span><span class="p">:</span> <span class="ss">&quot;2020-09-30T08:01:12.812Z&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;position&quot;</span><span class="p">:</span> <span class="ss">&quot;SHIELD Chief&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;gross_salary&quot;</span><span class="p">:</span> <span class="mi">9999999</span><span class="p">.</span><span class="mi">99</span>
- <span class="err">}</span>
-</pre></div>
-</td></tr></table>
-
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<p>Response 401</p>
-<ul>
-<li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
- <span class="err">}</span>
-</pre></div>
-</td></tr></table>
-
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="group-relative">Group Relative</h2>
-<p>Resources related to relatives in the API.</p>
-<h2 id="relative-relativeemployee_registerid">Relative [/relative/{employee_register}/{id}]</h2>
-<p>A Relative object has the following attributes:</p>
-<ul>
-<li>employee_register</li>
-<li>id</li>
 <li>name</li>
-<li>kinship</li>
+<li>created_at - A RFC3339 date when the user was created.</li>
+<li>updated_at - A RFC339 date when the user was updated.</li>
+<li>email - A string with user e-mail</li>
+<li>groups - An array of groups identifiers which user has access.</li>
+<li>url</li>
 </ul>
 <ul>
 <li>Parameters<ul>
-<li>employee_register: 1 (required, number) - ID of the employee which is related to the relative in form of an integer</li>
-<li>id: 1 (required, number) - ID of the relative in form of an integer</li>
+<li>user_id: 1 (required [some routes], uuid) - ID of the User in form of an UUID</li>
 </ul>
 </li>
 </ul>
-<h3 id="view-a-relative-detail-get">View a Relative Detail [GET]</h3>
+<h3 id="view-a-user-detail-get">View a User Detail [GET]</h3>
 <ul>
-<li>Response 200 (application/json)<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<li>Response 200 (application/json)<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="w">  </span><span class="err">{</span><span class="w"></span>
+<span class="w">      </span><span class="ss">&quot;name&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;Peter Parker&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="ss">&quot;created_at&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;2014-11-11T08:40:51.620Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="ss">&quot;updated_at&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;2018-08-21T21:16:09.712Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="ss">&quot;email&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;peter.parker@email.com&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="ss">&quot;groups&quot;</span><span class="err">:</span><span class="w"> </span><span class="o">[</span><span class="n"></span>
+<span class="n">        &quot;worker&quot;,</span>
+<span class="n">        &quot;heroes&quot;</span>
+<span class="n">      </span><span class="o">]</span><span class="w"></span>
+<span class="w">      </span><span class="ss">&quot;url&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;/user/83883e79-65f1-42bc-82ce-33615b47fcca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="err">}</span><span class="w"></span>
+</pre></div>
+</td></tr></table>
+
+</li>
+</ul>
+<h3 id="create-a-new-user-post">Create a new User [POST]</h3>
+<p>You may create a new user (if you have this permission) using this action. It takes a JSON object containing a user and all his infos. On this action you don't have to add <code class="codehilite"><span class="err">{</span><span class="n">user_id</span><span class="err">}</span></code> in the URL.</p>
+<ul>
+<li>name (string) - The user name</li>
+<li>email (string) - The user e-mail</li>
+<li>groups (array[string]) - The list of groups which the user will have access</li>
+</ul>
+<ul>
+<li>Request (application/json)<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="w">  </span><span class="err">{</span><span class="w"></span>
+<span class="w">      </span><span class="ss">&quot;name&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;Miles Morales&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="ss">&quot;email&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;miles.morales@email.com&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="ss">&quot;groups&quot;</span><span class="err">:</span><span class="w"> </span><span class="o">[</span><span class="n"></span>
+<span class="n">          &quot;workers&quot;,</span>
+<span class="n">          &quot;heroes&quot;,</span>
+<span class="n">          &quot;admins&quot;</span>
+<span class="n">      </span><span class="o">]</span><span class="w"></span>
+<span class="w">  </span><span class="err">}</span><span class="w"></span>
+</pre></div>
+</td></tr></table>
+
+</li>
+</ul>
+<ul>
+<li>
+<p>Response 201 (application/json)</p>
+<ul>
+<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="k">user</span><span class="o">/</span><span class="n">ad609b8d</span><span class="o">-</span><span class="n">ae9b</span><span class="o">-</span><span class="mi">4487</span><span class="o">-</span><span class="n">bff4</span><span class="o">-</span><span class="mi">8</span><span class="n">b1f995a323d</span>
+</pre></div>
+</td></tr></table>
+
+</li>
+</ul>
+<ul>
+<li>
+<p>Body</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">   </span><span class="ss">&quot;name&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;Miles Morales&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="ss">&quot;created_at&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;2019-09-25T12:01:41.091Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="ss">&quot;updated_at&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;2019-09-25T12:01:41.091Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="ss">&quot;email&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;miles.morales@email.com&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="ss">&quot;groups&quot;</span><span class="err">:</span><span class="w"> </span><span class="o">[</span><span class="n"></span>
+<span class="n">     &quot;worker&quot;,</span>
+<span class="n">     &quot;heroes&quot;,</span>
+<span class="n">     &quot;admins&quot;</span>
+<span class="n">   </span><span class="o">]</span><span class="w"></span>
+<span class="w">   </span><span class="ss">&quot;url&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;/user/ad609b8d-ae9b-4487-bff4-8b1f995a323d&quot;</span><span class="p">,</span><span class="w"></span>
+</pre></div>
+</td></tr></table>
+
+<p>}</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>Response 401 (application/json)</p>
+<ul>
+<li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
+    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
+ <span class="err">}</span>
+</pre></div>
+</td></tr></table>
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="update-a-user-patch">Update a User [PATCH]</h3>
+<p>You may update a user info (if you are the user or if you have this permission) using this action. It takes a JSON object containing a user and all the infos you want to update.</p>
+<ul>
+<li>name (string) - The user name (optional)</li>
+<li>email (string) - The user e-mail (optional)</li>
+<li>groups (array[string]) - The list of groups which the user will have access (optinal)</li>
+</ul>
+<ul>
+<li>Request (application/json)<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
 5
 6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="err">{</span>
-      <span class="ss">&quot;employee_register&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="ss">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;May Parker&quot;</span><span class="p">,</span>
-      <span class="ss">&quot;kinship&quot;</span><span class="p">:</span> <span class="ss">&quot;Aunt&quot;</span>
-  <span class="err">}</span>
-</pre></div>
-</td></tr></table>
-
-</li>
-</ul>
-<h3 id="add-a-new-relative-post">Add a New Relative [POST]</h3>
-<p>You may add a new relative (if you have this permission) using this action. It takes a JSON object containing a relative and his infos. On this action you don't have to add the relative <code class="codehilite"><span class="err">{</span><span class="n">id</span><span class="err">}</span></code> in the URL, only the <code class="codehilite"><span class="err">{</span><span class="n">employee_register</span><span class="err">}</span></code>.</p>
-<ul>
-<li>name (string) - The relative name</li>
-<li>kinship (string) - The relative kinship type name</li>
-</ul>
-<ul>
-<li>Request (application/json)<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="err">{</span>
-      <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Mary Jane Watson&quot;</span><span class="p">,</span>
-      <span class="ss">&quot;kinship&quot;</span><span class="p">:</span> <span class="ss">&quot;Wife&quot;</span>
+      <span class="ss">&quot;groups&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="ss">&quot;workers&quot;</span><span class="p">,</span>
+          <span class="ss">&quot;heroes&quot;</span>
+      <span class="p">]</span>
   <span class="err">}</span>
 </pre></div>
 </td></tr></table>
@@ -785,24 +733,34 @@
 <li>
 <p>Response 201 (application/json)</p>
 <ul>
-<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="k">relative</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="k">user</span><span class="o">/</span><span class="n">ad609b8d</span><span class="o">-</span><span class="n">ae9b</span><span class="o">-</span><span class="mi">4487</span><span class="o">-</span><span class="n">bff4</span><span class="o">-</span><span class="mi">8</span><span class="n">b1f995a323d</span>
 </pre></div>
 </td></tr></table>
 
 </li>
 </ul>
 <ul>
-<li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-   <span class="ss">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-   <span class="ss">&quot;employee_register&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-   <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Mary Jane Watson&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;kinship&quot;</span><span class="p">:</span>  <span class="ss">&quot;Wife&quot;</span>
- <span class="err">}</span>
+<li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="ss">&quot;name&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;Miles Morales&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="ss">&quot;created_at&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;2019-09-25T12:01:41.091Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="ss">&quot;updated_at&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;2019-09-26T08:15:38.920Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="ss">&quot;email&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;miles.morales@email.com&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="ss">&quot;groups&quot;</span><span class="err">:</span><span class="w"> </span><span class="o">[</span><span class="n"></span>
+<span class="n">       &quot;worker&quot;,</span>
+<span class="n">       &quot;heroes&quot;</span>
+<span class="n">    </span><span class="o">]</span><span class="w"></span>
+<span class="w">    </span><span class="ss">&quot;url&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;/user/ad609b8d-ae9b-4487-bff4-8b1f995a323d&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="err">}</span><span class="w"></span>
 </pre></div>
 </td></tr></table>
 
@@ -826,102 +784,10 @@
 </ul>
 </li>
 </ul>
-<h3 id="update-a-relative-patch">Update a Relative [PATCH]</h3>
-<p>You may update a relative information (if you have this permission) using this action. It takes a JSON object containing a relative and the info that you want to update.</p>
+<h3 id="remove-a-user-delete">Remove a User [DELETE]</h3>
+<p>You may remove a user (if you have this permission) using this action.</p>
 <ul>
-<li>name (string) - The relative name</li>
-<li>kinship (string) - The relative kinship type name</li>
-</ul>
-<ul>
-<li>Request (application/json)<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="err">{</span>
-      <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Mary Jane Watson&quot;</span><span class="p">,</span>
-      <span class="ss">&quot;kinship&quot;</span><span class="p">:</span> <span class="ss">&quot;Ex-Wife&quot;</span>
-  <span class="err">}</span>
-</pre></div>
-</td></tr></table>
-
-</li>
-</ul>
-<ul>
-<li>
-<p>Response 201 (application/json)</p>
-<ul>
-<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="k">relative</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
-</pre></div>
-</td></tr></table>
-
-</li>
-</ul>
-<ul>
-<li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-   <span class="ss">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-   <span class="ss">&quot;employee_register&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-   <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Mary Jane Watson&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;kinship&quot;</span><span class="p">:</span>  <span class="ss">&quot;Ex-Wife&quot;</span>
- <span class="err">}</span>
-</pre></div>
-</td></tr></table>
-
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<p>Response 401 (application/json)</p>
-<ul>
-<li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
- <span class="err">}</span>
-</pre></div>
-</td></tr></table>
-
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="remove-a-relative-delete">Remove a Relative [DELETE]</h3>
-<p>You may remove a relative (if you have this permission) using this action.</p>
-<ul>
-<li>
-<p>Response 200</p>
-<ul>
-<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="k">relative</span><span class="o">/</span><span class="mi">1</span>
-</pre></div>
-</td></tr></table>
-
-</li>
-</ul>
-<ul>
-<li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-   <span class="ss">&quot;old_value&quot;</span><span class="p">:</span> <span class="err">{</span>
-     <span class="ss">&quot;employee_register&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-     <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Mary Jane Watson&quot;</span><span class="p">,</span>
-     <span class="ss">&quot;kinship&quot;</span><span class="p">:</span>  <span class="ss">&quot;Ex-Wife&quot;</span>
-   <span class="err">}</span>
- <span class="err">}</span>
-</pre></div>
-</td></tr></table>
-
-</li>
-</ul>
-</li>
+<li>Response 200</li>
 </ul>
 <ul>
 <li>
@@ -959,7 +825,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../api-paycheck/" title="Paycheck API Blueprint" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../modules/front-register/" title="Front Register" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -968,19 +834,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Paycheck API Blueprint
+                Front Register
               </span>
             </div>
           </a>
         
         
-          <a href="../api-vacation/" title="Vacation API Blueprint" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../api-paycheck/" title="Paycheck API Blueprint" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Vacation API Blueprint
+                Paycheck API Blueprint
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

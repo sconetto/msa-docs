@@ -2,22 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>http://localhost/</loc>
-     <lastmod>2019-09-30</lastmod>
+     <lastmod>2019-10-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://localhost/project/about-rh/</loc>
-     <lastmod>2019-09-30</lastmod>
+     <loc>http://localhost/solution/about-rh/</loc>
+     <lastmod>2019-10-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://localhost/solution/architecture/</loc>
+     <lastmod>2019-10-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://localhost/modules/api-auth/</loc>
+     <lastmod>2019-10-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://localhost/modules/api-paycheck/</loc>
+     <lastmod>2019-10-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://localhost/modules/api-register/</loc>
-     <lastmod>2019-09-30</lastmod>
+     <lastmod>2019-10-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://localhost/modules/api-vacation/</loc>
+     <lastmod>2019-10-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://localhost/modules/front-register/</loc>
+     <lastmod>2019-10-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://localhost/interfaces/api-auth/</loc>
+     <lastmod>2019-10-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://localhost/interfaces/api-paycheck/</loc>
+     <lastmod>2019-10-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://localhost/interfaces/api-register/</loc>
-     <lastmod>2019-09-30</lastmod>
+     <lastmod>2019-10-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://localhost/interfaces/api-vacation/</loc>
+     <lastmod>2019-10-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
