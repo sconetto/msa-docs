@@ -1,4 +1,4 @@
-# About RH Project
+# About HR Project
 
 
 O sistema de Recursos Humanos é um projeto para a construção de um sistema de gerenciamento de recursos
