@@ -1,26 +1,27 @@
-# API RH - Cadastro
+# HR System - Register API
 
 ![Badge](https://img.shields.io/badge/example-ok-brightgreen?style=flat-square)
 ![Badge](https://img.shields.io/badge/build-ok-brightgreen?style=flat-square)
 ![Badge](https://img.shields.io/badge/tests-failing-red?style=flat-square)
 ![Badge](https://img.shields.io/badge/quality-70%25-yellow?style=flat-square)
 
-Ainda assim, existem dúvidas a respeito de como a determinação clara de
-objetivos acarreta um processo de reformulação e modernização das posturas dos
-órgãos dirigentes com relação às suas atribuições. [^1]
+The Registration API is responsible for retrieving and maintaining data regarding
+the registration of employees in the context of HR management of the organization.
+The API was created out of HR system necessity, but it was designed for being
+used by other systems and services that require employee data.
 
-## Dependências
+## Dependencies
 
 - Python 3.7.3
 - Flask 1.1.1
 
-## Configuração
+## Configuration
 
-A configuração da API de Cadastro se dá por meio de variáveis de ambiente do
-sistema operacional. Portanto a configuração deverá ser feita no _host_ ou
-deverá ser passada para o ambiente do _container_.
+You should set environment variables up in the operational system in order to
+prepare the API for use. Therefore the configuration must be done in the _host_
+OS or should be passed to the _container_ environment.
 
-As configurações disponíveis são:
+The available settings are:
 
 - `HTTP_PORT`: Número da porta HTTP no qual o serviço será disponibilizado.
 - `DATABASE_HOST`: Endereço de rede do servidor do banco de dados.
@@ -29,7 +30,7 @@ As configurações disponíveis são:
 - `DATABASE_USER`: Nome do usuário para autenticação no banco de dados.
 - `DATABASE_PASSWORD`: Senha do usuário para autenticação no banco de dados.
 
-Caso tenha dúvidas de como configurar variáveis de ambiente verifique em:
+If you have questions about how to set environment variables check these links:
 
 - [Variáveis de Ambiente - Linux](https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-a-linux-vps)
 - [Variáveis de Ambiente - Docker](https://serverascode.com/2014/05/29/environment-variables-with-docker.html)
@@ -166,5 +167,3 @@ docker run -d --name api-register -e .env api-register
 
 **OBS**: Pressupõe que as configurações estão listadas no arquivo `.env`. Para
 mais configurações, opções de execução e a documentação complementar acesse [Docker](https://docs.docker.com/)
-
-[^1]: Gerado no Lero Lero

@@ -61,11 +61,11 @@ nav:
       - About: solution/about-rh.md
       - Architecture: solution/architecture.md
   - Modules:
-      - API Auth: modules/api-auth.md
-      - API Paycheck: modules/api-paycheck.md
-      - API Register: modules/api-register.md
-      - API Vacation: modules/api-vacation.md
-      - Front Register: modules/front-register.md
+      - Auth API: modules/api-auth.md
+      - Paycheck API: modules/api-paycheck.md
+      - Register API: modules/api-register.md
+      - Vacation API: modules/api-vacation.md
+      - Human Resources UI: modules/front-register.md
   - Interfaces:
       - Auth API Blueprint: interfaces/api-auth.md
       - Paycheck API Blueprint: interfaces/api-paycheck.md
