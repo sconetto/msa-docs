@@ -5,6 +5,8 @@ HOST: http://locahost/api-vacation/
 
 Vacation is a simple API to manage employees vacations and vacation scheduling. You can view this documentation over at [API Vacation Module](../../modules/api-vacation).
 
+This API blueprint resource can be found at [API Vacation Blueprint](./api-auth.apib).
+
 # Vacation API Root [/]
 
 This resource does not have any attributes. Instead it offers the initial API affordances in the form of the links in the JSON body.

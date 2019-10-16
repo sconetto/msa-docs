@@ -1,7 +1,7 @@
 # Project Information
 site_name: MSA Docs
 site_description: MSA Docs article project documentation
-site_url: http://localhost
+site_url: https://sconetto.me/msa-docs/
 
 # Repository
 repo_url: https://github.com/sconetto/msa-docs
@@ -67,6 +67,7 @@ nav:
       - Vacation API: modules/api-vacation.md
       - Human Resources UI: modules/front-register.md
   - Interfaces:
+      - About Interfaces: interfaces/about.md
       - Auth API Blueprint: interfaces/api-auth.md
       - Paycheck API Blueprint: interfaces/api-paycheck.md
       - Register API Blueprint: interfaces/api-register.md

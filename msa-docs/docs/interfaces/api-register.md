@@ -5,6 +5,8 @@ HOST: http://locahost/api-register/
 
 Register is a simple API to manage employees. You can view this documentation over at [API Vacation Module](../../modules/api-register).
 
+This API blueprint resource can be found at [API Register Blueprint](./api-auth.apib).
+
 # Register API Root [/]
 
 This resource does not have any attributes. Instead it offers the initial API affordances in the form of the links in the JSON body.

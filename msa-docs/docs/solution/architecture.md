@@ -8,7 +8,7 @@ within the HR system.
 This is the list of system components existing in the solution which have their
 documentation described in this documentation:
 
-- [Auth API](../../modules/auth-api)
+- [Auth API](../../modules/api-auth)
 - [Paycheck API](../../modules/api-paycheck)
 - [Register API](../../modules/api-register)
 - [Vacation API](../../modules/api-vacation)
