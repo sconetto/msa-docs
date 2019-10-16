@@ -1,63 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>http://localhost/</loc>
-     <lastmod>2019-10-01</lastmod>
+     <loc>https://sconetto.me/msa-docs/</loc>
+     <lastmod>2019-10-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://localhost/solution/about-rh/</loc>
-     <lastmod>2019-10-01</lastmod>
+     <loc>https://sconetto.me/msa-docs/solution/about-rh/</loc>
+     <lastmod>2019-10-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://localhost/solution/architecture/</loc>
-     <lastmod>2019-10-01</lastmod>
+     <loc>https://sconetto.me/msa-docs/solution/architecture/</loc>
+     <lastmod>2019-10-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://localhost/modules/api-auth/</loc>
-     <lastmod>2019-10-01</lastmod>
+     <loc>https://sconetto.me/msa-docs/modules/api-auth/</loc>
+     <lastmod>2019-10-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://localhost/modules/api-paycheck/</loc>
-     <lastmod>2019-10-01</lastmod>
+     <loc>https://sconetto.me/msa-docs/modules/api-paycheck/</loc>
+     <lastmod>2019-10-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://localhost/modules/api-register/</loc>
-     <lastmod>2019-10-01</lastmod>
+     <loc>https://sconetto.me/msa-docs/modules/api-register/</loc>
+     <lastmod>2019-10-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://localhost/modules/api-vacation/</loc>
-     <lastmod>2019-10-01</lastmod>
+     <loc>https://sconetto.me/msa-docs/modules/api-vacation/</loc>
+     <lastmod>2019-10-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://localhost/modules/front-register/</loc>
-     <lastmod>2019-10-01</lastmod>
+     <loc>https://sconetto.me/msa-docs/modules/front-register/</loc>
+     <lastmod>2019-10-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://localhost/interfaces/api-auth/</loc>
-     <lastmod>2019-10-01</lastmod>
+     <loc>https://sconetto.me/msa-docs/interfaces/about/</loc>
+     <lastmod>2019-10-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://localhost/interfaces/api-paycheck/</loc>
-     <lastmod>2019-10-01</lastmod>
+     <loc>https://sconetto.me/msa-docs/interfaces/api-auth/</loc>
+     <lastmod>2019-10-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://localhost/interfaces/api-register/</loc>
-     <lastmod>2019-10-01</lastmod>
+     <loc>https://sconetto.me/msa-docs/interfaces/api-paycheck/</loc>
+     <lastmod>2019-10-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://localhost/interfaces/api-vacation/</loc>
-     <lastmod>2019-10-01</lastmod>
+     <loc>https://sconetto.me/msa-docs/interfaces/api-register/</loc>
+     <lastmod>2019-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://sconetto.me/msa-docs/interfaces/api-vacation/</loc>
+     <lastmod>2019-10-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

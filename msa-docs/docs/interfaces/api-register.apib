@@ -1,9 +1,13 @@
 FORMAT: 1A
-HOST: http://locahost/api-register/
+HOST: https://locahost/api-register/
 
 # Register
 
 Register is a simple API to manage employees. You can view this documentation over at [API Vacation Module](../../modules/api-register).
+
+API Link: [Paycheck Apiary](https://msadocsregister.docs.apiary.io)
+
+This API blueprint resource can be found at [API Register Blueprint](./api-auth.apib).
 
 # Register API Root [/]
 
@@ -71,26 +75,26 @@ You may hire a new employee (if you have this permission) using this action. It 
 
   - Headers
 
-         Location: /employee/4
+            Location: /employee/4
 
   - Body
 
-         {
-           "register": 4
-           "name": "Nick Fury",
-           "hired_at": "2019-09-30T11:30:41.789Z",
-           "fired_at": null,
-           "position": "SHIELD Leader",
-           "gross_salary": 99999.99
-         }
+            {
+                "register": 4
+                "name": "Nick Fury",
+                "hired_at": "2019-09-30T11:30:41.789Z",
+                "fired_at": null,
+                "position": "SHIELD Leader",
+                "gross_salary": 99999.99
+            }
 
 - Response 401 (application/json)
 
   - Body
 
-         {
-            "message": "You're not allowed to perform this action"
-         }
+            {
+                "message": "You're not allowed to perform this action"
+            }
 
 ### Update a Employee [PATCH]
 
@@ -111,26 +115,26 @@ You may update a employee information (if you have this permission) using this a
 
   - Headers
 
-         Location: /employee/4
+            Location: /employee/4
 
   - Body
 
-         {
-           "register": 4,
-           "name": "Nick Fury",
-           "hired_at": "2019-09-30T11:30:41.789Z",
-           "fired_at": null,
-           "position": "SHIELD Chief",
-           "gross_salary": 9999999.99
-         }
+            {
+                "register": 4,
+                "name": "Nick Fury",
+                "hired_at": "2019-09-30T11:30:41.789Z",
+                "fired_at": null,
+                "position": "SHIELD Chief",
+                "gross_salary": 9999999.99
+            }
 
 - Response 401 (application/json)
 
   - Body
 
-         {
-            "message": "You're not allowed to perform this action"
-         }
+            {
+                "message": "You're not allowed to perform this action"
+            }
 
 ### Fire a Employee [DELETE]
 
@@ -140,26 +144,26 @@ You may fire a employee (if you have this permission) using this action. His inf
 
   - Headers
 
-         Location: /employee/4
+            Location: /employee/4
 
   - Body
 
-         {
-           "register": 4,
-           "name": "Nick Fury",
-           "hired_at": "2019-09-30T11:30:41.789Z",
-           "fired_at": "2020-09-30T08:01:12.812Z",
-           "position": "SHIELD Chief",
-           "gross_salary": 9999999.99
-         }
+            {
+                "register": 4,
+                "name": "Nick Fury",
+                "hired_at": "2019-09-30T11:30:41.789Z",
+                "fired_at": "2020-09-30T08:01:12.812Z",
+                "position": "SHIELD Chief",
+                "gross_salary": 9999999.99
+            }
 
 - Response 401
 
   - Body
 
-         {
-            "message": "You're not allowed to perform this action"
-         }
+            {
+                "message": "You're not allowed to perform this action"
+            }
 
 ## Group Relative
 
@@ -207,24 +211,24 @@ You may add a new relative (if you have this permission) using this action. It t
 
   - Headers
 
-         Location: /relative/1/2
+            Location: /relative/1/2
 
   - Body
 
-         {
-           "id": 2,
-           "employee_register": 1,
-           "name": "Mary Jane Watson",
-           "kinship":  "Wife"
-         }
+            {
+                "id": 2,
+                "employee_register": 1,
+                "name": "Mary Jane Watson",
+                "kinship":  "Wife"
+            }
 
 - Response 401 (application/json)
 
   - Body
 
-         {
-            "message": "You're not allowed to perform this action"
-         }
+            {
+                "message": "You're not allowed to perform this action"
+            }
 
 ### Update a Relative [PATCH]
 
@@ -235,33 +239,33 @@ You may update a relative information (if you have this permission) using this a
 
 - Request (application/json)
 
-        {
-            "name": "Mary Jane Watson",
-            "kinship": "Ex-Wife"
-        }
+            {
+                "name": "Mary Jane Watson",
+                "kinship": "Ex-Wife"
+            }
 
 - Response 201 (application/json)
 
   - Headers
 
-         Location: /relative/1/2
+            Location: /relative/1/2
 
   - Body
 
-         {
-           "id": 2,
-           "employee_register": 1,
-           "name": "Mary Jane Watson",
-           "kinship":  "Ex-Wife"
-         }
+            {
+                "id": 2,
+                "employee_register": 1,
+                "name": "Mary Jane Watson",
+                "kinship":  "Ex-Wife"
+            }
 
 - Response 401 (application/json)
 
   - Body
 
-         {
-            "message": "You're not allowed to perform this action"
-         }
+            {
+                "message": "You're not allowed to perform this action"
+            }
 
 ### Remove a Relative [DELETE]
 
@@ -271,22 +275,22 @@ You may remove a relative (if you have this permission) using this action.
 
   - Headers
 
-         Location: /relative/1
+            Location: /relative/1
 
   - Body
 
-         {
-           "old_value": {
-             "employee_register": 1,
-             "name": "Mary Jane Watson",
-             "kinship":  "Ex-Wife"
-           }
-         }
+            {
+                "old_value": {
+                    "employee_register": 1,
+                    "name": "Mary Jane Watson",
+                    "kinship":  "Ex-Wife"
+                }
+            }
 
 - Response 401
 
   - Body
 
-         {
-            "message": "You're not allowed to perform this action"
-         }
+            {
+                "message": "You're not allowed to perform this action"
+            }
