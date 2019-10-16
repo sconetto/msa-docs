@@ -1,9 +1,11 @@
 FORMAT: 1A
-HOST: http://locahost/api-paycheck/
+HOST: https://localhost/paycheck
 
 # Paycheck
 
 Paycheck is a API used to manage all workers paycheck, benefits and others questions related to wage. You can view his documentation over at [API Paycheck Module](../../modules/api-paycheck).
+
+API Link: [Paycheck Apiary](https://msadocspaycheck.docs.apiary.io)
 
 This API blueprint resource can be found at [API Paycheck Blueprint](./api-auth.apib).
 
@@ -17,15 +19,15 @@ It is recommend to follow the “url” link values, [Link](https://tools.ietf.o
 
 - Response 200 (application/json)
 
-        {
-            "paycheck": "/payroll"
-        }
+            {
+                "paycheck": "/payroll"
+            }
 
 ## Group Payroll
 
 Resources related to questions in the API.
 
-## Payroll [/payroll/{year}/{month}/{payroll_number}{?{filter}={value}&}]
+## Payroll [/payroll/{year}/{month}/{payroll_number}{?{status}={value}&{filter}={value}}]
 
 A Payroll object has the following attributes:
 
@@ -74,7 +76,7 @@ You may create a new payroll (if you have this permission) using this action. It
 
 - Request (URL)
 
-      URL: /payroll/2019/9
+        URL: /payroll/2019/9
 
 - Response 200 (application/json)
 
@@ -119,9 +121,9 @@ You may create a new payroll (if you have this permission) using this action. It
 
   - Body
 
-         {
-            "message": "You're not allowed to perform this action"
-         }
+            {
+                "message": "You're not allowed to perform this action"
+            }
 
 ### Update information on the Payroll [PATCH]
 
@@ -133,7 +135,7 @@ You may update the payroll (if you have this permission) using this action. It t
 
 - Request (URL)
 
-      URL: /payroll/2019/9/2
+        URL: /payroll/2019/9/2
 
 - Request (application/json)
 
@@ -173,9 +175,9 @@ You may update the payroll (if you have this permission) using this action. It t
 
   - Body
 
-         {
-            "message": "You're not allowed to perform this action"
-         }
+            {
+                "message": "You're not allowed to perform this action"
+            }
 
 ### Delete Payroll [DELETE]
 
@@ -183,30 +185,30 @@ You may create a new payroll (if you have this permission) using this action. It
 
 - Request (URL)
 
-      URL: /payroll/2019/9/2
+        URL: /payroll/2019/9/2
 
-      OR
+        OR
 
-      URL: /payroll/2019?month=9&status=false
+        URL: /payroll/2019?month=9&status=false
 
 - Response 200 (application/json)
 
   - Body
 
-         {
-            "deleted_payrolls": [2]
-         }
+            {
+                "deleted_payrolls": [2]
+            }
 
-         OR
+            OR
 
-         {
-           "deleted_payrolls": [2, 3]
-         }
+            {
+                "deleted_payrolls": [2, 3]
+            }
 
 - Response 401 (application/json)
 
   - Body
 
-         {
-            "message": "You're not allowed to perform this action"
-         }
+            {
+                "message": "You're not allowed to perform this action"
+            }

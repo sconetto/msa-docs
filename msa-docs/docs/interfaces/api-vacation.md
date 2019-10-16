@@ -1,9 +1,11 @@
 FORMAT: 1A
-HOST: http://locahost/api-vacation/
+HOST: http://locahost/vacation/
 
 # Vacation
 
 Vacation is a simple API to manage employees vacations and vacation scheduling. You can view this documentation over at [API Vacation Module](../../modules/api-vacation).
+
+API Link: [Paycheck Apiary](https://msadocsvacation.docs.apiary.io)
 
 This API blueprint resource can be found at [API Vacation Blueprint](./api-auth.apib).
 
@@ -17,9 +19,9 @@ It is recommend to follow the “url” link values, [Link](https://tools.ietf.o
 
 - Response 200 (application/json)
 
-        {
-            "vacation": "/vacation"
-        }
+            {
+                "vacation": "/vacation"
+            }
 
 ## Group Vacation
 
@@ -84,25 +86,25 @@ You may create/update a employee vacation (if you have this permission) using th
 
   - Headers
 
-         Location: /vacation/2019/9
+            Location: /vacation/2019/9
 
   - Body
 
-         {
-            "year": 2019,
-            "month": "september",
-            "number_employees": 3
-        }
+            {
+                "year": 2019,
+                "month": "september",
+                "number_employees": 3
+            }
 
 - Response 401 (application/json)
 
   - Body
 
-         {
-            "message": "You're not allowed to perform this action"
-         }
+            {
+                "message": "You're not allowed to perform this action"
+            }
 
-### Remove a Employee Vacation
+### Remove a Employee Vacation [DELETE]
 
 You may remove a employee vacation (if you have this permission) using this action. It takes a JSON object containing a employee register. The employee-vacation object have the following structure.
 
@@ -118,20 +120,20 @@ You may remove a employee vacation (if you have this permission) using this acti
 
   - Headers
 
-         Location: /vacation/2019/9
+            Location: /vacation/2019/9
 
   - Body
 
-         {
-            "year": 2019,
-            "month": "september",
-            "number_employees": 1
-        }
+            {
+                "year": 2019,
+                "month": "september",
+                "number_employees": 1
+            }
 
 - Response 401 (application/json)
 
   - Body
 
-         {
-            "message": "You're not allowed to perform this action"
-         }
+            {
+                "message": "You're not allowed to perform this action"
+            }
