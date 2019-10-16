@@ -13,7 +13,7 @@
         <meta name="description" content="MSA Docs article project documentation">
       
       
-        <link rel="canonical" href="http://localhost/solution/about-rh/">
+        <link rel="canonical" href="https://sconetto.me/msa-docs/solution/about-rh/">
       
       
       
@@ -89,7 +89,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#about-rh-project" tabindex="1" class="md-skip">
+      <a href="#about-hr-project" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -98,7 +98,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://localhost" title="MSA Docs" class="md-header-nav__button md-logo">
+        <a href="https://sconetto.me/msa-docs/" title="MSA Docs" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -190,7 +190,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://localhost" title="MSA Docs" class="md-nav__button md-logo">
+    <a href="https://sconetto.me/msa-docs/" title="MSA Docs" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
@@ -316,8 +316,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/api-auth/" title="API Auth" class="md-nav__link">
-      API Auth
+    <a href="../../modules/api-auth/" title="Auth API" class="md-nav__link">
+      Auth API
     </a>
   </li>
 
@@ -328,8 +328,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/api-paycheck/" title="API Paycheck" class="md-nav__link">
-      API Paycheck
+    <a href="../../modules/api-paycheck/" title="Paycheck API" class="md-nav__link">
+      Paycheck API
     </a>
   </li>
 
@@ -340,8 +340,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/api-register/" title="API Register" class="md-nav__link">
-      API Register
+    <a href="../../modules/api-register/" title="Register API" class="md-nav__link">
+      Register API
     </a>
   </li>
 
@@ -352,8 +352,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/api-vacation/" title="API Vacation" class="md-nav__link">
-      API Vacation
+    <a href="../../modules/api-vacation/" title="Vacation API" class="md-nav__link">
+      Vacation API
     </a>
   </li>
 
@@ -364,8 +364,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/front-register/" title="Front Register" class="md-nav__link">
-      Front Register
+    <a href="../../modules/front-register/" title="Human Resources UI" class="md-nav__link">
+      Human Resources UI
     </a>
   </li>
 
@@ -393,6 +393,18 @@
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/about/" title="About Interfaces" class="md-nav__link">
+      About Interfaces
+    </a>
+  </li>
+
         
           
           
@@ -477,19 +489,29 @@
                   <a href="https://github.com/sconetto/msa-docs/edit/master/docs/solution/about-rh.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="about-rh-project">About RH Project</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in dapibus ipsum.
-Nam eu dignissim nulla. Pellentesque sed pretium ex. Nullam eget fermentum enim,
-eget facilisis arcu. In lobortis accumsan libero a maximus. Lorem ipsum dolor
-sit amet, consectetur adipiscing elit. Vestibulum posuere ut leo et pulvinar.</p>
-<p>Aenean id condimentum ex. Proin tempor egestas enim, eget condimentum risus
-tempus sit amet. Quisque et tellus vitae lacus dignissim posuere sed fermentum
-lacus.</p>
-<p>Aliquam at eros vel leo semper fermentum non eu quam. Sed et sapien malesuada
-leo semper dignissim. Phasellus tincidunt ligula aliquam felis sagittis tempor.
-Phasellus id lorem eget erat luctus interdum at eu eros. Duis congue dapibus
-mauris, condimentum imperdiet ante eleifend non. Maecenas mattis viverra lorem
-et hendrerit. Phasellus vel pulvinar lacus.</p>
+                <h1 id="about-hr-project">About HR Project</h1>
+<p>O sistema de Recursos Humanos é um projeto para a construção de um sistema de gerenciamento de recursos
+humanos da organização MARVEL<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.
+Possui funcionalidades para cadastrar dados dos funcionários, suas férias e seus pagamentos, bem como realizar a consulta a estes dados.
+Para o usuário final, o sistema possui dois macro-requisitos:</p>
+<ol>
+<li>
+<p>Funcionar como sistema de gerenciamento de RH e;</p>
+</li>
+<li>
+<p>Permitir a integração de outros sistemas com as informações gerenciadas pelo sistema.</p>
+</li>
+</ol>
+<p>Trata-se de um sistema utilizado em ambiente Web, construído na <strong>Arquitetura de Microsserviços</strong>, composto por diversos serviços e <em>interfaces</em>, conforme descrito nesta documentação.
+Apesar dessa modularização, o sistema é visto pelo usuário como um único software, de forma que essa modularização não seja percebida.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Organização fictícia.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 
