@@ -5,6 +5,8 @@ HOST: http://locahost/api-paycheck/
 
 Paycheck is a API used to manage all workers paycheck, benefits and others questions related to wage. You can view his documentation over at [API Paycheck Module](../../modules/api-paycheck).
 
+This API blueprint resource can be found at [API Paycheck Blueprint](./api-auth.apib).
+
 # Paycheck API Root [/]
 
 This resource does not have any attributes. Instead it offers the initial API affordances in the form of the links in the JSON body.

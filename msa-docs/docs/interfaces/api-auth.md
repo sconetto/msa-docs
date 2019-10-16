@@ -5,6 +5,8 @@ HOST: http://locahost/api-auth/
 
 Auth is a API using Keycloack and JWT to authenticate and manage users in the RH App Domain. You can view his documentation over at [API Auth Module](../../modules/api-auth).
 
+This API blueprint resource can be found at [API Auth Blueprint](./api-auth.apib).
+
 # Auth API Root [/]
 
 This resource does not have any attributes. Instead it offers the initial API affordances in the form of the links in the JSON body.
