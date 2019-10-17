@@ -491,6 +491,7 @@
                 
                 <h1 id="register">Register</h1>
 <p>Register is a simple API to manage employees. You can view this documentation over at <a href="../../modules/api-register">API Vacation Module</a>.</p>
+<p>API Link: <a href="https://msadocsregister.docs.apiary.io">Paycheck Apiary</a></p>
 <p>This API blueprint resource can be found at <a href="../api-auth.apib">API Register Blueprint</a>.</p>
 <h1 id="register-api-root">Register API Root [/]</h1>
 <p>This resource does not have any attributes. Instead it offers the initial API affordances in the form of the links in the JSON body.</p>
@@ -575,7 +576,7 @@
 <li>
 <p>Response 201 (application/json)</p>
 <ul>
-<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="n">employee</span><span class="o">/</span><span class="mi">4</span>
+<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="n">employee</span><span class="o">/</span><span class="mi">4</span>
 </pre></div>
 </td></tr></table>
 
@@ -589,14 +590,14 @@
 5
 6
 7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-   <span class="ss">&quot;register&quot;</span><span class="p">:</span> <span class="mi">4</span>
-   <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Nick Fury&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;hired_at&quot;</span><span class="p">:</span> <span class="ss">&quot;2019-09-30T11:30:41.789Z&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;fired_at&quot;</span><span class="p">:</span> <span class="k">null</span><span class="p">,</span>
-   <span class="ss">&quot;position&quot;</span><span class="p">:</span> <span class="ss">&quot;SHIELD Leader&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;gross_salary&quot;</span><span class="p">:</span> <span class="mi">99999</span><span class="p">.</span><span class="mi">99</span>
- <span class="err">}</span>
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;register&quot;</span><span class="p">:</span> <span class="mi">4</span>
+        <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Nick Fury&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;hired_at&quot;</span><span class="p">:</span> <span class="ss">&quot;2019-09-30T11:30:41.789Z&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;fired_at&quot;</span><span class="p">:</span> <span class="k">null</span><span class="p">,</span>
+        <span class="ss">&quot;position&quot;</span><span class="p">:</span> <span class="ss">&quot;SHIELD Leader&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;gross_salary&quot;</span><span class="p">:</span> <span class="mi">99999</span><span class="p">.</span><span class="mi">99</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -610,9 +611,9 @@
 <ul>
 <li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
- <span class="err">}</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -644,7 +645,7 @@
 <li>
 <p>Response 201 (application/json)</p>
 <ul>
-<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="n">employee</span><span class="o">/</span><span class="mi">4</span>
+<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="n">employee</span><span class="o">/</span><span class="mi">4</span>
 </pre></div>
 </td></tr></table>
 
@@ -658,14 +659,14 @@
 5
 6
 7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-   <span class="ss">&quot;register&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-   <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Nick Fury&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;hired_at&quot;</span><span class="p">:</span> <span class="ss">&quot;2019-09-30T11:30:41.789Z&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;fired_at&quot;</span><span class="p">:</span> <span class="k">null</span><span class="p">,</span>
-   <span class="ss">&quot;position&quot;</span><span class="p">:</span> <span class="ss">&quot;SHIELD Chief&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;gross_salary&quot;</span><span class="p">:</span> <span class="mi">9999999</span><span class="p">.</span><span class="mi">99</span>
- <span class="err">}</span>
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;register&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Nick Fury&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;hired_at&quot;</span><span class="p">:</span> <span class="ss">&quot;2019-09-30T11:30:41.789Z&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;fired_at&quot;</span><span class="p">:</span> <span class="k">null</span><span class="p">,</span>
+        <span class="ss">&quot;position&quot;</span><span class="p">:</span> <span class="ss">&quot;SHIELD Chief&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;gross_salary&quot;</span><span class="p">:</span> <span class="mi">9999999</span><span class="p">.</span><span class="mi">99</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -679,9 +680,9 @@
 <ul>
 <li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
- <span class="err">}</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -695,7 +696,7 @@
 <li>
 <p>Response 200</p>
 <ul>
-<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="n">employee</span><span class="o">/</span><span class="mi">4</span>
+<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="n">employee</span><span class="o">/</span><span class="mi">4</span>
 </pre></div>
 </td></tr></table>
 
@@ -709,14 +710,14 @@
 5
 6
 7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-   <span class="ss">&quot;register&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-   <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Nick Fury&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;hired_at&quot;</span><span class="p">:</span> <span class="ss">&quot;2019-09-30T11:30:41.789Z&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;fired_at&quot;</span><span class="p">:</span> <span class="ss">&quot;2020-09-30T08:01:12.812Z&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;position&quot;</span><span class="p">:</span> <span class="ss">&quot;SHIELD Chief&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;gross_salary&quot;</span><span class="p">:</span> <span class="mi">9999999</span><span class="p">.</span><span class="mi">99</span>
- <span class="err">}</span>
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;register&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Nick Fury&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;hired_at&quot;</span><span class="p">:</span> <span class="ss">&quot;2019-09-30T11:30:41.789Z&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;fired_at&quot;</span><span class="p">:</span> <span class="ss">&quot;2020-09-30T08:01:12.812Z&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;position&quot;</span><span class="p">:</span> <span class="ss">&quot;SHIELD Chief&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;gross_salary&quot;</span><span class="p">:</span> <span class="mi">9999999</span><span class="p">.</span><span class="mi">99</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -730,9 +731,9 @@
 <ul>
 <li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
- <span class="err">}</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -798,7 +799,7 @@
 <li>
 <p>Response 201 (application/json)</p>
 <ul>
-<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="k">relative</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="k">relative</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
 </pre></div>
 </td></tr></table>
 
@@ -810,12 +811,12 @@
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-   <span class="ss">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-   <span class="ss">&quot;employee_register&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-   <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Mary Jane Watson&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;kinship&quot;</span><span class="p">:</span>  <span class="ss">&quot;Wife&quot;</span>
- <span class="err">}</span>
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="ss">&quot;employee_register&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Mary Jane Watson&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;kinship&quot;</span><span class="p">:</span>  <span class="ss">&quot;Wife&quot;</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -829,9 +830,9 @@
 <ul>
 <li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
- <span class="err">}</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -849,10 +850,10 @@
 <li>Request (application/json)<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="err">{</span>
-      <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Mary Jane Watson&quot;</span><span class="p">,</span>
-      <span class="ss">&quot;kinship&quot;</span><span class="p">:</span> <span class="ss">&quot;Ex-Wife&quot;</span>
-  <span class="err">}</span>
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>      <span class="err">{</span>
+          <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Mary Jane Watson&quot;</span><span class="p">,</span>
+          <span class="ss">&quot;kinship&quot;</span><span class="p">:</span> <span class="ss">&quot;Ex-Wife&quot;</span>
+      <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -862,7 +863,7 @@
 <li>
 <p>Response 201 (application/json)</p>
 <ul>
-<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="k">relative</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="k">relative</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
 </pre></div>
 </td></tr></table>
 
@@ -874,12 +875,12 @@
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-   <span class="ss">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-   <span class="ss">&quot;employee_register&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-   <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Mary Jane Watson&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;kinship&quot;</span><span class="p">:</span>  <span class="ss">&quot;Ex-Wife&quot;</span>
- <span class="err">}</span>
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="ss">&quot;employee_register&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Mary Jane Watson&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;kinship&quot;</span><span class="p">:</span>  <span class="ss">&quot;Ex-Wife&quot;</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -893,9 +894,9 @@
 <ul>
 <li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
- <span class="err">}</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -909,7 +910,7 @@
 <li>
 <p>Response 200</p>
 <ul>
-<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="k">relative</span><span class="o">/</span><span class="mi">1</span>
+<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="k">relative</span><span class="o">/</span><span class="mi">1</span>
 </pre></div>
 </td></tr></table>
 
@@ -922,13 +923,13 @@
 4
 5
 6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-   <span class="ss">&quot;old_value&quot;</span><span class="p">:</span> <span class="err">{</span>
-     <span class="ss">&quot;employee_register&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-     <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Mary Jane Watson&quot;</span><span class="p">,</span>
-     <span class="ss">&quot;kinship&quot;</span><span class="p">:</span>  <span class="ss">&quot;Ex-Wife&quot;</span>
-   <span class="err">}</span>
- <span class="err">}</span>
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;old_value&quot;</span><span class="p">:</span> <span class="err">{</span>
+            <span class="ss">&quot;employee_register&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Mary Jane Watson&quot;</span><span class="p">,</span>
+            <span class="ss">&quot;kinship&quot;</span><span class="p">:</span>  <span class="ss">&quot;Ex-Wife&quot;</span>
+        <span class="err">}</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -942,9 +943,9 @@
 <ul>
 <li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
- <span class="err">}</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
