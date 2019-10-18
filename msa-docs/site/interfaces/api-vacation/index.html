@@ -491,6 +491,7 @@
                 
                 <h1 id="vacation">Vacation</h1>
 <p>Vacation is a simple API to manage employees vacations and vacation scheduling. You can view this documentation over at <a href="../../modules/api-vacation">API Vacation Module</a>.</p>
+<p>API Link: <a href="https://msadocsvacation.docs.apiary.io">Paycheck Apiary</a></p>
 <p>This API blueprint resource can be found at <a href="../api-auth.apib">API Vacation Blueprint</a>.</p>
 <h1 id="vacation-api-root">Vacation API Root [/]</h1>
 <p>This resource does not have any attributes. Instead it offers the initial API affordances in the form of the links in the JSON body.</p>
@@ -499,9 +500,9 @@
 <ul>
 <li>Response 200 (application/json)<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="err">{</span>
-      <span class="ss">&quot;vacation&quot;</span><span class="p">:</span> <span class="ss">&quot;/vacation&quot;</span>
-  <span class="err">}</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>      <span class="err">{</span>
+          <span class="ss">&quot;vacation&quot;</span><span class="p">:</span> <span class="ss">&quot;/vacation&quot;</span>
+      <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -597,7 +598,7 @@
 <li>
 <p>Response 201 (application/json)</p>
 <ul>
-<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="n">vacation</span><span class="o">/</span><span class="mi">2019</span><span class="o">/</span><span class="mi">9</span>
+<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="n">vacation</span><span class="o">/</span><span class="mi">2019</span><span class="o">/</span><span class="mi">9</span>
 </pre></div>
 </td></tr></table>
 
@@ -608,11 +609,11 @@
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2019</span><span class="p">,</span>
-    <span class="ss">&quot;month&quot;</span><span class="p">:</span> <span class="ss">&quot;september&quot;</span><span class="p">,</span>
-    <span class="ss">&quot;number_employees&quot;</span><span class="p">:</span> <span class="mi">3</span>
-<span class="err">}</span>
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2019</span><span class="p">,</span>
+        <span class="ss">&quot;month&quot;</span><span class="p">:</span> <span class="ss">&quot;september&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;number_employees&quot;</span><span class="p">:</span> <span class="mi">3</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -626,9 +627,9 @@
 <ul>
 <li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
- <span class="err">}</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -636,7 +637,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="remove-a-employee-vacation">Remove a Employee Vacation</h3>
+<h3 id="remove-a-employee-vacation-delete">Remove a Employee Vacation [DELETE]</h3>
 <p>You may remove a employee vacation (if you have this permission) using this action. It takes a JSON object containing a employee register. The employee-vacation object have the following structure.</p>
 <ul>
 <li>register (integer or array[integer]) - The employee register</li>
@@ -656,7 +657,7 @@
 <li>
 <p>Response 201 (application/json)</p>
 <ul>
-<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="n">vacation</span><span class="o">/</span><span class="mi">2019</span><span class="o">/</span><span class="mi">9</span>
+<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="n">vacation</span><span class="o">/</span><span class="mi">2019</span><span class="o">/</span><span class="mi">9</span>
 </pre></div>
 </td></tr></table>
 
@@ -667,11 +668,11 @@
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2019</span><span class="p">,</span>
-    <span class="ss">&quot;month&quot;</span><span class="p">:</span> <span class="ss">&quot;september&quot;</span><span class="p">,</span>
-    <span class="ss">&quot;number_employees&quot;</span><span class="p">:</span> <span class="mi">1</span>
-<span class="err">}</span>
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2019</span><span class="p">,</span>
+        <span class="ss">&quot;month&quot;</span><span class="p">:</span> <span class="ss">&quot;september&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;number_employees&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -685,9 +686,9 @@
 <ul>
 <li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
- <span class="err">}</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
