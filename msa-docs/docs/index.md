@@ -1,17 +1,11 @@
-# MSA Docs - Estudo de caso: Sistema de RH
+# MSA Docs - Study Case: HR System
 
-Neste repositório encontra-se uma instância da proposta de _framework_ para a
-documentação de sistemas construídos com a utilização de microsserviços,
-conforme proposto no artigo **Microservices Documentation Proposal**[^1]. Logo a
-navegação representa uma instância num estudo de caso do sistema de RH, no qual
-foi objeto de teste para a validação do _framework_ no artigo.
+In this repository is an instance of the proposal of framework for the documentation of systems built using microservices, as proposed in the article **Microservices Documentation Proposal**[^1]. Therefore the navigation represents an instance in a case study of the HR system, in which it was tested for framework validation in the article.
 
-Neste _framework_, a documentação é realizada conforme a visão que se deseja dar.
-A estrutura a seguir descreve como a estrutura dos documentos presentes neste
-sistema está disposta, segundo a estratégia das visões:
+In this framework, the documentation is build according to the desired view. The following structure describes how the structure of the documents in this system is arranged according to the strategy of the views:
 
-- `Solução` - Documentação do nível de solução do projeto de software.
-- `Módulos` - Documentação dos módulos individuais da arquitetura.
-- `Interface` - Documentação das interfaces dos módulos e as interações do sistema.
+- `Solution` - Documentation of the software design solution level.
+- `Modules` - Documentation of individual architecture modules.
+- `Interface` - Documentation of module interfaces and system interactions.
 
-[^1]: Inserir o link do texto completo do artigo.
+[^1]: Insert article full text link.
