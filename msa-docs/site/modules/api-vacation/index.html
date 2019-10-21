@@ -370,37 +370,37 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dependencias" class="md-nav__link">
-    Dependências
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuracao" class="md-nav__link">
-    Configuração
+  <a href="#configuration" class="md-nav__link">
+    Configuration
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#desenvolvimento" class="md-nav__link">
-    Desenvolvimento
+  <a href="#development" class="md-nav__link">
+    Development
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#instalando-o-virtualenvwrapper" class="md-nav__link">
-    Instalando o VirtualEnvWrapper
+  <a href="#installing-virtualenvwrapper" class="md-nav__link">
+    Installing VirtualEnvWrapper
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#execucao-local" class="md-nav__link">
-    Execução Local
+  <a href="#local-execution" class="md-nav__link">
+    Local Execution
   </a>
   
 </li>
@@ -411,15 +411,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testes" class="md-nav__link">
-    Testes
+  <a href="#tests" class="md-nav__link">
+    Tests
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#construcao" class="md-nav__link">
-    Construção
+  <a href="#build" class="md-nav__link">
+    Build
   </a>
   
 </li>
@@ -557,37 +557,37 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dependencias" class="md-nav__link">
-    Dependências
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuracao" class="md-nav__link">
-    Configuração
+  <a href="#configuration" class="md-nav__link">
+    Configuration
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#desenvolvimento" class="md-nav__link">
-    Desenvolvimento
+  <a href="#development" class="md-nav__link">
+    Development
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#instalando-o-virtualenvwrapper" class="md-nav__link">
-    Instalando o VirtualEnvWrapper
+  <a href="#installing-virtualenvwrapper" class="md-nav__link">
+    Installing VirtualEnvWrapper
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#execucao-local" class="md-nav__link">
-    Execução Local
+  <a href="#local-execution" class="md-nav__link">
+    Local Execution
   </a>
   
 </li>
@@ -598,15 +598,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testes" class="md-nav__link">
-    Testes
+  <a href="#tests" class="md-nav__link">
+    Tests
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#construcao" class="md-nav__link">
-    Construção
+  <a href="#build" class="md-nav__link">
+    Build
   </a>
   
 </li>
@@ -635,105 +635,86 @@
 <img alt="Badge" src="https://img.shields.io/badge/build-ok-brightgreen?style=flat-square" />
 <img alt="Badge" src="https://img.shields.io/badge/tests-ok-brightgreen?style=flat-square" />
 <img alt="Badge" src="https://img.shields.io/badge/quality-50%25-orange?style=flat-square" /></p>
-<p>A API de Férias é responsável pela consulta e a gestão de dados referentes às
-férias dos funcionários no contexto da gestão de pessoas da organização.
-A API foi criada por necessidade do sistema de recursos humanos, mas ela foi
-projetada para poder ser utilizada por outros sistemas e serviços que necessitem
-de informações sobre as férias dos funcionários.</p>
-<h2 id="dependencias">Dependências</h2>
+<p>The Vacation API is responsible for querying and managing employee vacation data in the context of the organization's people management.
+The API was created out of the need for the human resources system, but it was designed to be used by other systems and services that require employee vacation information.</p>
+<h2 id="dependencies">Dependencies</h2>
 <ul>
 <li>Python 3.7.3</li>
 <li>Flask 1.1.1</li>
 </ul>
-<h2 id="configuracao">Configuração</h2>
-<p>A configuração da API de Férias se dá por meio de variáveis de ambiente do
-sistema operacional. Portanto a configuração deverá ser feita no <em>host</em> ou
-deverá ser passada para o ambiente do <em>container</em>.</p>
-<p>As configurações disponíveis são:</p>
+<h2 id="configuration">Configuration</h2>
+<p>Vacation API configuration is done through operating system environment variables. Therefore the configuration must be done on the host or must be passed to the container environment.</p>
+<p>The available settings are:</p>
 <ul>
-<li><code class="codehilite"><span class="n">HTTP_PORT</span></code>: Número da porta HTTP no qual o serviço será disponibilizado.</li>
-<li><code class="codehilite"><span class="n">DATABASE_HOST</span></code>: Endereço de rede do servidor do banco de dados.</li>
-<li><code class="codehilite"><span class="n">DATABASE_PORT</span></code>: Porta no qual o serviço de banco de dados está disponível.</li>
-<li><code class="codehilite"><span class="n">DATABASE_NAME</span></code>: Nome do <em>schema</em> disponível para o serviço.</li>
-<li><code class="codehilite"><span class="n">DATABASE_USER</span></code>: Nome do usuário para autenticação no banco de dados.</li>
-<li><code class="codehilite"><span class="n">DATABASE_PASSWORD</span></code>: Senha do usuário para autenticação no banco de dados.</li>
-<li><code class="codehilite"><span class="n">CALENDAR_API_URL</span></code>: URL da API que fornece as datas tratadas para agendamentos.</li>
+<li><code class="codehilite"><span class="n">HTTP_PORT</span></code>: HTTP port number on which the service will be available.</li>
+<li><code class="codehilite"><span class="n">DATABASE_HOST</span></code>: Database server network address.</li>
+<li><code class="codehilite"><span class="n">DATABASE_PORT</span></code>: Port on which database service is available.</li>
+<li><code class="codehilite"><span class="n">DATABASE_NAME</span></code>: Schema name available for the service.</li>
+<li><code class="codehilite"><span class="n">DATABASE_USER</span></code>: Username for database authentication.</li>
+<li><code class="codehilite"><span class="n">DATABASE_PASSWORD</span></code>: User password for database authentication.</li>
+<li><code class="codehilite"><span class="n">CALENDAR_API_URL</span></code>: API URL providing dates handled for vacation appointments.</li>
 </ul>
-<p>Caso tenha dúvidas de como configurar variáveis de ambiente verifique em:</p>
+<p>If you have questions about how to set environment variables check these links:</p>
 <ul>
-<li><a href="https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-a-linux-vps">Variáveis de Ambiente - Linux</a></li>
-<li><a href="https://serverascode.com/2014/05/29/environment-variables-with-docker.html">Variáveis de Ambiente - Docker</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-a-linux-vps">Environment Variables - Linux</a></li>
+<li><a href="https://serverascode.com/2014/05/29/environment-variables-with-docker.html">Environment Variables - Docker</a></li>
 </ul>
-<p><strong>OBS</strong>: Lembrando que o sistema foi desenvolvido para execução em ambientes Linux
-e Docker. Não há suporte oficial para Windows.</p>
-<h2 id="desenvolvimento">Desenvolvimento</h2>
-<h3 id="instalando-o-virtualenvwrapper">Instalando o VirtualEnvWrapper</h3>
-<p>Recomendados a utilização de um ambiente virtual criado pelo módulo
-virtualenvwrapper. Existe um sítio virtual com instruções em inglês para a
-instalação que pode ser acessado
-<a href="https://virtualenvwrapper.readthedocs.io/en/latest/install.html">aqui</a>.
-Mas você pode também seguir o roteiro abaixo para a instalação do ambiente:</p>
+<p><strong>Observation</strong>: The system was developed to run in Linux and Docker environments. No official support for Windows.</p>
+<h2 id="development">Development</h2>
+<h3 id="installing-virtualenvwrapper">Installing VirtualEnvWrapper</h3>
+<p>We recommend using a virtual environment created by the <strong>virtualenvwrapper</strong> module. There is a virtual site with English instructions for installation that can be accessed <a href="https://virtualenvwrapper.readthedocs.io/en/latest/install.html">here</a>. But you can also follow these steps below for installing the environment:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo python3 -m pip install -U pip             <span class="c1"># Faz a atualização do pip</span>
-sudo python3 -m pip install virtualenvwrapper  <span class="c1"># Instala o módulo virtualenvwrapper</span>
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo python3 -m pip install -U pip             <span class="c1"># Update pip</span>
+sudo python3 -m pip install virtualenvwrapper  <span class="c1"># Install virtualenvwrapper module</span>
 </pre></div>
 </td></tr></table>
 
-<p><strong>OBS</strong>: Caso não tenha acesso de administrador na máquina remova o sudo do
-início do comando e adicione a <em>flag</em> <code class="codehilite"><span class="c1">--user</span></code> ao final do comando.</p>
-<p>Agora configure o seu <em>shell</em> para utilizar o <strong>virtualenvwrapper</strong>, adicionando essas
-duas linhas ao arquivo de inicialização do seu <em>shell</em> (<code class="codehilite"><span class="na">.bashrc</span></code>, <code class="codehilite"><span class="na">.profile</span></code>, etc.)</p>
+<p><strong>Observation</strong>: If you do not have administrator access on the machine remove <code class="codehilite"><span class="n">sudo</span></code> from the beginning of the command and add the flag <code class="codehilite"><span class="c1">--user</span></code> to the end of the command.</p>
+<p>Now configure your shell to use <strong>virtualenvwrapper</strong> by adding these two lines to your shell initialization file (e.g. <code class="codehilite"><span class="na">.bashrc</span></code>,<code class="codehilite"><span class="na">.profile</span></code>, etc.)</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">WORKON_HOME</span><span class="o">=</span><span class="se">\$</span>HOME/.virtualenvs
 <span class="nb">source</span> /usr/local/bin/virtualenvwrapper.sh
 </pre></div>
 </td></tr></table>
 
-<p>Caso queira adicionar um local específico de projeto basta adicionar uma
-terceira linha com o seguinte <em>export</em>:</p>
+<p>If you want to add a specific project location (will automatically go to the project folder when the virtual environment is activated) just add a third line with the following <code class="codehilite"><span class="n">export</span></code>:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">PROJECT_HOME</span><span class="o">=</span>/path/to/project
 </pre></div>
 </td></tr></table>
 
-<p>Execute o arquivo de inicialização do <em>shell</em> para que as mudanças surtam
-efeito, por exemplo:</p>
+<p>Run the shell startup file for the changes to take effect, for example:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">source</span> ~/.bashrc
 </pre></div>
 </td></tr></table>
 
-<p>Agora crie um ambiente virtual com o seguinte comando (colocando o nome que
-deseja para o ambiente), neste exemplo usarei o nome <strong>vacation</strong>:</p>
+<p>Now create a virtual environment with the following command (entering the name you want for the environment), in this example I will use the name <strong>vacation</strong>:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mkvirtualenv -p <span class="k">$(</span>which python3<span class="k">)</span> vacation
 </pre></div>
 </td></tr></table>
 
-<p>Para utilizá-lo:</p>
+<p>To use it:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>workon vacation
 sudo python3 -m pip install pipenv
-pipenv install <span class="c1"># Irá instalar todas as dependências usadas no projeto</span>
+pipenv install <span class="c1"># Will install all of the project dependencies</span>
 </pre></div>
 </td></tr></table>
 
-<p>OBS: Novamente, caso necessário, adicione a <em>flag</em> <code class="codehilite"><span class="c1">--user</span></code> para fazer a
-instalação do pacote do pipenv.</p>
-<h3 id="execucao-local">Execução Local</h3>
-<p>Para execução local do sistema, rode o seguinte comando na pasta raíz do projeto
-(considerando que a <em>virtualenv</em> já esteja ativa):</p>
+<p><strong>Observaion</strong>: Again, if necessary, add the flag <code class="codehilite"><span class="c1">--user</span></code> to make the pipenv package installation for the local user.</p>
+<h3 id="local-execution">Local Execution</h3>
+<p>For local system execution, run the following command in the project root folder (assuming <em>virtualenv</em> is already active):</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>python src/main.py
 </pre></div>
 </td></tr></table>
 
-<p>Com isso o sistema será executado no <em>localhost</em> e estará disponível na porta
-<code class="codehilite"><span class="n">HTTP_PORT</span></code> configurada para o sistema. Dessa forma é possível testar as novas
-implementações.</p>
-<h2 id="testes">Testes</h2>
-<p>Para executar os testes da API Vacation siga o roteiro abaixo descrito:</p>
+<p>This will run the system on <em>localhost</em> and will be available on the <code class="codehilite"><span class="n">HTTP_PORT</span></code> port configured for the system. This way you can test new implementations.</p>
+<h2 id="tests">Tests</h2>
+<p>To run the Vacation API tests follow the script below:</p>
 <ol>
-<li>Ative a <em>virtualenv</em> <strong>vacation</strong>;</li>
+<li>Enable <em>virtualenv</em> <strong>vacation</strong>;</li>
 <li>
-<p>Garanta que as dependências estejam instaladas, principalmente:</p>
+<p>Ensure that the dependencies are installed, especially:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="n">pytest</span>
@@ -744,7 +725,7 @@ implementações.</p>
 
 </li>
 <li>
-<p>Execute os comandos abaixo:</p>
+<p>Run the commands below:</p>
 </li>
 </ol>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -752,44 +733,35 @@ implementações.</p>
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>                       <span class="c1"># Define path do python</span>
-pytest src/                                    <span class="c1"># Executa os testes</span>
-pytest --cov<span class="o">=</span>vacation src/                     <span class="c1"># Executa os testes avaliando a cobertura</span>
-pytest --cov<span class="o">=</span>vacation --cov-report xml src/    <span class="c1"># Gera o relatório em XML da cobertura</span>
-flake8 src/                                    <span class="c1"># Roda o linter do PEP8</span>
-<span class="nb">unset</span> PYTHONPATH                               <span class="c1"># Remove a variável PYTHONPATH</span>
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>                       <span class="c1"># Set the python path as the project folder</span>
+pytest src/                                    <span class="c1"># Performs the tests</span>
+pytest --cov<span class="o">=</span>vacation src/                     <span class="c1"># Performs tests evaluating coverage</span>
+pytest --cov<span class="o">=</span>vacation --cov-report xml src/    <span class="c1"># Generate the XML report of coverage</span>
+flake8 src/                                    <span class="c1"># Run PEP8 linter</span>
+<span class="nb">unset</span> PYTHONPATH                               <span class="c1"># Unset PYTHONPATH variable</span>
 </pre></div>
 </td></tr></table>
 
-<p>Durante os testes o terminal apresentará um <em>output</em> com o relatório dos testes
-(falhas, <em>skips</em> e sucessos) e a cobertura de testes do sistema. Para outras
-configurações e documentação complementar acesse <a href="https://pytest.org/en/latest/">pytest</a>
-e <a href="https://pytest-cov.readthedocs.io/en/latest/">coverage</a>.</p>
-<p>Durante o processo de <em>lint</em> o terminal apresentará um relatório com erros e
-<em>warnings</em> do guia de estilo do PEP8, para mais configurações e a documentação
-complementar acesse <a href="http://flake8.pycqa.org/en/latest/index.html#quickstart">flake8</a>
-e <a href="https://www.python.org/dev/peps/pep-0008/">PEP8</a></p>
-<h2 id="construcao">Construção</h2>
-<p>Para fazer a construção do serviço do API Vacation basta seguir o roteiro abaixo:</p>
+<p>During the tests the terminal will display a output with the test report (failures, skips and successes) and the system test coverage. For other configurations and supplemental documentation go to <a href="https://pytest.org/en/latest/">pytest</a> and <a href="https://pytest-cov.readthedocs.io/en/latest/">coverage</a>.</p>
+<p>During the lint process the terminal will report a bug report and warnings from the PEP8 style guide, for more configurations and additional documentation go to <a href="http://flake8.pycqa.org/en/latest/index.html#quickstart">flake8</a> and <a href="https://www.python.org/dev/peps/pep-0008/">PEP8</a></p>
+<h2 id="build">Build</h2>
+<p>To build the API Vacation service just follow the script below:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>docker build -t api-vacation:&lt;version&gt; .
 </pre></div>
 </td></tr></table>
 
-<p>Definindo a versão em <code class="codehilite"><span class="o">&lt;</span><span class="k">version</span><span class="o">&gt;</span></code>. E.g.: <code class="codehilite"><span class="n">latest</span></code>, <code class="codehilite"><span class="k">stable</span></code>, <code class="codehilite"><span class="n">alpha</span></code>, <code class="codehilite"><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code> e etc.</p>
-<p>Verifique se foi feito o login no serviço do <a href="https://hub.docker.com/">docker hub</a>,
-caso não execute o comando do <code class="codehilite"><span class="n">docker</span> <span class="n">login</span></code>.</p>
+<p>Setting the version on <code class="codehilite"><span class="o">&lt;</span><span class="k">version</span><span class="o">&gt;</span></code>. E.g.: <code class="codehilite"><span class="n">latest</span></code>, <code class="codehilite"><span class="k">stable</span></code>, <code class="codehilite"><span class="n">alpha</span></code>, <code class="codehilite"><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code> and etc.</p>
+<p>Make sure you have logged in to the <a href="https://hub.docker.com/">docker hub</a> service. If you do not, run the <code class="codehilite"><span class="n">docker</span> <span class="n">login</span></code> command.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>docker push api-vacation:&lt;version&gt;
 </pre></div>
 </td></tr></table>
 
-<p>Por fim, caso a execução do sistema será feita pelo <em>container</em> docker construído
-execute:</p>
+<p>Finally, if the system will be executed by the built container docker, execute:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>docker run -d --name api-vacation -e .env api-vacation
 </pre></div>
 </td></tr></table>
 
-<p><strong>OBS</strong>: Pressupõe que as configurações estão listadas no arquivo <code class="codehilite"><span class="na">.env</span></code>. Para
-mais configurações, opções de execução e a documentação complementar acesse <a href="https://docs.docker.com/">Docker</a></p>
+<p><strong>Observation</strong>: Assumes that the settings are listed in the <code class="codehilite"><span class="na">.env</span></code> file. For more settings, execution options, and supplemental documentation, go to <a href="https://docs.docker.com/">Docker</a></p>
                 
                   
                 
