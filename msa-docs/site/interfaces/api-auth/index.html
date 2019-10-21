@@ -491,6 +491,7 @@
                 
                 <h1 id="auth">Auth</h1>
 <p>Auth is a API using Keycloack and JWT to authenticate and manage users in the RH App Domain. You can view his documentation over at <a href="../../modules/api-auth">API Auth Module</a>.</p>
+<p>API Link: <a href="http://msadocsauth.docs.apiary.io/">Auth Apiary</a></p>
 <p>This API blueprint resource can be found at <a href="../api-auth.apib">API Auth Blueprint</a>.</p>
 <h1 id="auth-api-root">Auth API Root [/]</h1>
 <p>This resource does not have any attributes. Instead it offers the initial API affordances in the form of the links in the JSON body.</p>
@@ -542,9 +543,9 @@
 <ul>
 <li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;access_token&quot;</span><span class="p">:</span><span class="n">eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9</span><span class="p">.</span><span class="n">eyJlbWFpbCI6Im1pbGVzLm1vcmFsZXNAZW1haWwuY29tIiwicGFzc3dvcmQiOiJzcGlkZXJtYW5ydWxlcyEiLCJqdGkiOiJmZTllN2Y1NC0zNTIzLTRhYTgtOTg5Yi1kYzhhM2RkYjA3ODYiLCJpYXQiOjE1Njk1MDg3NDQsImV4cCI6MTU2OTUxMjM0NH0</span><span class="p">.</span><span class="n">K</span><span class="o">-</span><span class="n">rncSvY9v</span><span class="o">-</span><span class="n">x2tQC0cIekhw4yqGfW3i4MEyIS1ljn54</span>
- <span class="err">}</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;access_token&quot;</span><span class="p">:</span><span class="n">eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9</span><span class="p">.</span><span class="n">eyJlbWFpbCI6Im1pbGVzLm1vcmFsZXNAZW1haWwuY29tIiwicGFzc3dvcmQiOiJzcGlkZXJtYW5ydWxlcyEiLCJqdGkiOiJmZTllN2Y1NC0zNTIzLTRhYTgtOTg5Yi1kYzhhM2RkYjA3ODYiLCJpYXQiOjE1Njk1MDg3NDQsImV4cCI6MTU2OTUxMjM0NH0</span><span class="p">.</span><span class="n">K</span><span class="o">-</span><span class="n">rncSvY9v</span><span class="o">-</span><span class="n">x2tQC0cIekhw4yqGfW3i4MEyIS1ljn54</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -558,9 +559,9 @@
 <ul>
 <li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
- <span class="err">}</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -574,9 +575,9 @@
 <ul>
 <li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;User not found!&quot;</span>
- <span class="err">}</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>     <span class="err">{</span>
+        <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;User not found!&quot;</span>
+     <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -584,6 +585,7 @@
 </ul>
 </li>
 </ul>
+<h2 id="group-user">Group User</h2>
 <h2 id="user-session">User Session</h2>
 <p>Resources related to users in the API</p>
 <h2 id="user-useruser_id">User [/user/{user_id}]</h2>
@@ -598,7 +600,7 @@
 </ul>
 <ul>
 <li>Parameters<ul>
-<li>user_id: 1 (required [some routes], uuid) - ID of the User in form of an UUID</li>
+<li>user_id: 1 (required, uuid) - ID of the User in form of an UUID</li>
 </ul>
 </li>
 </ul>
@@ -664,16 +666,14 @@
 <li>
 <p>Response 201 (application/json)</p>
 <ul>
-<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="k">user</span><span class="o">/</span><span class="n">ad609b8d</span><span class="o">-</span><span class="n">ae9b</span><span class="o">-</span><span class="mi">4487</span><span class="o">-</span><span class="n">bff4</span><span class="o">-</span><span class="mi">8</span><span class="n">b1f995a323d</span>
+<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="k">user</span><span class="o">/</span><span class="n">ad609b8d</span><span class="o">-</span><span class="n">ae9b</span><span class="o">-</span><span class="mi">4487</span><span class="o">-</span><span class="n">bff4</span><span class="o">-</span><span class="mi">8</span><span class="n">b1f995a323d</span>
 </pre></div>
 </td></tr></table>
 
 </li>
 </ul>
 <ul>
-<li>
-<p>Body</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -683,21 +683,22 @@
  8
  9
 10
-11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">   </span><span class="ss">&quot;name&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;Miles Morales&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">   </span><span class="ss">&quot;created_at&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;2019-09-25T12:01:41.091Z&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">   </span><span class="ss">&quot;updated_at&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;2019-09-25T12:01:41.091Z&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">   </span><span class="ss">&quot;email&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;miles.morales@email.com&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">   </span><span class="ss">&quot;groups&quot;</span><span class="err">:</span><span class="w"> </span><span class="o">[</span><span class="n"></span>
-<span class="n">     &quot;worker&quot;,</span>
-<span class="n">     &quot;heroes&quot;,</span>
-<span class="n">     &quot;admins&quot;</span>
-<span class="n">   </span><span class="o">]</span><span class="w"></span>
-<span class="w">   </span><span class="ss">&quot;url&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;/user/ad609b8d-ae9b-4487-bff4-8b1f995a323d&quot;</span><span class="p">,</span><span class="w"></span>
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="w">     </span><span class="err">{</span><span class="w"></span>
+<span class="w">       </span><span class="ss">&quot;name&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;Miles Morales&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="ss">&quot;created_at&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;2019-09-25T12:01:41.091Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="ss">&quot;updated_at&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;2019-09-25T12:01:41.091Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="ss">&quot;email&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;miles.morales@email.com&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="ss">&quot;groups&quot;</span><span class="err">:</span><span class="w"> </span><span class="o">[</span><span class="n"></span>
+<span class="n">         &quot;worker&quot;,</span>
+<span class="n">         &quot;heroes&quot;,</span>
+<span class="n">         &quot;admins&quot;</span>
+<span class="n">       </span><span class="o">]</span><span class="w"></span>
+<span class="w">       </span><span class="ss">&quot;url&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;/user/ad609b8d-ae9b-4487-bff4-8b1f995a323d&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
 </pre></div>
 </td></tr></table>
 
-<p>}</p>
 </li>
 </ul>
 </li>
@@ -708,9 +709,9 @@
 <ul>
 <li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
- <span class="err">}</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>     <span class="err">{</span>
+        <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
+     <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -731,12 +732,12 @@
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="err">{</span>
-      <span class="ss">&quot;groups&quot;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="ss">&quot;workers&quot;</span><span class="p">,</span>
-          <span class="ss">&quot;heroes&quot;</span>
-      <span class="p">]</span>
-  <span class="err">}</span>
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>      <span class="err">{</span>
+          <span class="ss">&quot;groups&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="ss">&quot;workers&quot;</span><span class="p">,</span>
+              <span class="ss">&quot;heroes&quot;</span>
+          <span class="p">]</span>
+      <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -746,7 +747,7 @@
 <li>
 <p>Response 201 (application/json)</p>
 <ul>
-<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="k">user</span><span class="o">/</span><span class="n">ad609b8d</span><span class="o">-</span><span class="n">ae9b</span><span class="o">-</span><span class="mi">4487</span><span class="o">-</span><span class="n">bff4</span><span class="o">-</span><span class="mi">8</span><span class="n">b1f995a323d</span>
+<li>Headers<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">Location</span><span class="p">:</span> <span class="o">/</span><span class="k">user</span><span class="o">/</span><span class="n">ad609b8d</span><span class="o">-</span><span class="n">ae9b</span><span class="o">-</span><span class="mi">4487</span><span class="o">-</span><span class="n">bff4</span><span class="o">-</span><span class="mi">8</span><span class="n">b1f995a323d</span>
 </pre></div>
 </td></tr></table>
 
@@ -763,17 +764,17 @@
  8
  9
 10
-11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">    </span><span class="ss">&quot;name&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;Miles Morales&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="ss">&quot;created_at&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;2019-09-25T12:01:41.091Z&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="ss">&quot;updated_at&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;2019-09-26T08:15:38.920Z&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="ss">&quot;email&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;miles.morales@email.com&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="ss">&quot;groups&quot;</span><span class="err">:</span><span class="w"> </span><span class="o">[</span><span class="n"></span>
-<span class="n">       &quot;worker&quot;,</span>
-<span class="n">       &quot;heroes&quot;</span>
-<span class="n">    </span><span class="o">]</span><span class="w"></span>
-<span class="w">    </span><span class="ss">&quot;url&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;/user/ad609b8d-ae9b-4487-bff4-8b1f995a323d&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="err">}</span><span class="w"></span>
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="w">    </span><span class="err">{</span><span class="w"></span>
+<span class="w">        </span><span class="ss">&quot;name&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;Miles Morales&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="ss">&quot;created_at&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;2019-09-25T12:01:41.091Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="ss">&quot;updated_at&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;2019-09-26T08:15:38.920Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="ss">&quot;email&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;miles.morales@email.com&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="ss">&quot;groups&quot;</span><span class="err">:</span><span class="w"> </span><span class="o">[</span><span class="n"></span>
+<span class="n">           &quot;worker&quot;,</span>
+<span class="n">           &quot;heroes&quot;</span>
+<span class="n">        </span><span class="o">]</span><span class="w"></span>
+<span class="w">        </span><span class="ss">&quot;url&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;/user/ad609b8d-ae9b-4487-bff4-8b1f995a323d&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
 </pre></div>
 </td></tr></table>
 
@@ -787,9 +788,9 @@
 <ul>
 <li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
- <span class="err">}</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -808,9 +809,9 @@
 <ul>
 <li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
- <span class="err">}</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 

@@ -491,6 +491,7 @@
                 
                 <h1 id="paycheck">Paycheck</h1>
 <p>Paycheck is a API used to manage all workers paycheck, benefits and others questions related to wage. You can view his documentation over at <a href="../../modules/api-paycheck">API Paycheck Module</a>.</p>
+<p>API Link: <a href="https://msadocspaycheck.docs.apiary.io">Paycheck Apiary</a></p>
 <p>This API blueprint resource can be found at <a href="../api-auth.apib">API Paycheck Blueprint</a>.</p>
 <h1 id="paycheck-api-root">Paycheck API Root [/]</h1>
 <p>This resource does not have any attributes. Instead it offers the initial API affordances in the form of the links in the JSON body.</p>
@@ -499,9 +500,9 @@
 <ul>
 <li>Response 200 (application/json)<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="err">{</span>
-      <span class="ss">&quot;paycheck&quot;</span><span class="p">:</span> <span class="ss">&quot;/payroll&quot;</span>
-  <span class="err">}</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>      <span class="err">{</span>
+          <span class="ss">&quot;paycheck&quot;</span><span class="p">:</span> <span class="ss">&quot;/payroll&quot;</span>
+      <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -509,7 +510,7 @@
 </ul>
 <h2 id="group-payroll">Group Payroll</h2>
 <p>Resources related to questions in the API.</p>
-<h2 id="payroll-payrollyearmonthpayroll_numberfiltervalue">Payroll [/payroll/{year}/{month}/{payroll_number}{?{filter}={value}&amp;}]</h2>
+<h2 id="payroll-payrollyearmonthpayroll_numberstatusvaluefiltervalue">Payroll [/payroll/{year}/{month}/{payroll_number}{?{status}={value}&amp;{filter}={value}}]</h2>
 <p>A Payroll object has the following attributes:</p>
 <ul>
 <li>payroll_number</li>
@@ -576,7 +577,7 @@
 <li>month (string) - The month of the Payroll</li>
 </ul>
 <ul>
-<li>Request (URL)<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">URL</span><span class="p">:</span> <span class="o">/</span><span class="n">payroll</span><span class="o">/</span><span class="mi">2019</span><span class="o">/</span><span class="mi">9</span>
+<li>Request (URL)<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="n">URL</span><span class="p">:</span> <span class="o">/</span><span class="n">payroll</span><span class="o">/</span><span class="mi">2019</span><span class="o">/</span><span class="mi">9</span>
 </pre></div>
 </td></tr></table>
 
@@ -664,9 +665,9 @@
 <ul>
 <li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
- <span class="err">}</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -682,7 +683,7 @@
 <li>payment (array[float]) - The value of the employees salary</li>
 </ul>
 <ul>
-<li>Request (URL)<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">URL</span><span class="p">:</span> <span class="o">/</span><span class="n">payroll</span><span class="o">/</span><span class="mi">2019</span><span class="o">/</span><span class="mi">9</span><span class="o">/</span><span class="mi">2</span>
+<li>Request (URL)<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="n">URL</span><span class="p">:</span> <span class="o">/</span><span class="n">payroll</span><span class="o">/</span><span class="mi">2019</span><span class="o">/</span><span class="mi">9</span><span class="o">/</span><span class="mi">2</span>
 </pre></div>
 </td></tr></table>
 
@@ -760,9 +761,9 @@
 <ul>
 <li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
- <span class="err">}</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -777,11 +778,11 @@
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">URL</span><span class="p">:</span> <span class="o">/</span><span class="n">payroll</span><span class="o">/</span><span class="mi">2019</span><span class="o">/</span><span class="mi">9</span><span class="o">/</span><span class="mi">2</span>
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="n">URL</span><span class="p">:</span> <span class="o">/</span><span class="n">payroll</span><span class="o">/</span><span class="mi">2019</span><span class="o">/</span><span class="mi">9</span><span class="o">/</span><span class="mi">2</span>
 
-<span class="k">OR</span>
+  <span class="k">OR</span>
 
-<span class="n">URL</span><span class="p">:</span> <span class="o">/</span><span class="n">payroll</span><span class="o">/</span><span class="mi">2019</span><span class="o">?</span><span class="k">month</span><span class="o">=</span><span class="mi">9</span><span class="o">&amp;</span><span class="n">status</span><span class="o">=</span><span class="k">false</span>
+  <span class="n">URL</span><span class="p">:</span> <span class="o">/</span><span class="n">payroll</span><span class="o">/</span><span class="mi">2019</span><span class="o">?</span><span class="k">month</span><span class="o">=</span><span class="mi">9</span><span class="o">&amp;</span><span class="n">status</span><span class="o">=</span><span class="k">false</span>
 </pre></div>
 </td></tr></table>
 
@@ -799,15 +800,15 @@
 6
 7
 8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;deleted_payrolls&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
- <span class="err">}</span>
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;deleted_payrolls&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="err">}</span>
 
- <span class="k">OR</span>
+    <span class="k">OR</span>
 
- <span class="err">{</span>
-   <span class="ss">&quot;deleted_payrolls&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
- <span class="err">}</span>
+    <span class="err">{</span>
+        <span class="ss">&quot;deleted_payrolls&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -821,9 +822,9 @@
 <ul>
 <li>Body<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="err">{</span>
-    <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
- <span class="err">}</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="err">{</span>
+        <span class="ss">&quot;message&quot;</span><span class="p">:</span> <span class="ss">&quot;You&#39;re not allowed to perform this action&quot;</span>
+    <span class="err">}</span>
 </pre></div>
 </td></tr></table>
 
