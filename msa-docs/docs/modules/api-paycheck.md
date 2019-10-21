@@ -13,7 +13,7 @@ The API was created out of the human resources system's need, but it was designe
 - Python 3.7.3
 - Flask 1.1.1
 
-## Configuração
+## Configuration
 
 The Paycheck API configuration is through operating system environment variables. Therefore the configuration must be done on the host or must be passed to the container environment.
 

@@ -1,142 +1,121 @@
-# App RH - Cadastro
+# HR System - Register Web
 
 ![Badge](https://img.shields.io/badge/example-ok-brightgreen?style=flat-square)
 ![Badge](https://img.shields.io/badge/build-failing-red?style=flat-square)
 ![Badge](https://img.shields.io/badge/tests-ok-brightgreen?style=flat-square)
 ![Badge](https://img.shields.io/badge/quality-66%25-yellow?style=flat-square)
 
-Aplicação de Front para o sistema de Cadastro de RH. Construído em AngularJS, permite
-que o usuário faça uso da API de RH e gerencie os fluxos de trabalho de RH. O Front
-de Cadastro apresenta uma interface amigável entre o usuário e o sistema. O Front
-ainda apresenta informações das execuções do sistema e dados para que o usuário
-seja capaz de averiguar informações comuns de um fluxo de trabalho em RH.
+Web application for HR System Register. Built on AngularJS, it allows the user to make use of the HR API and manage HR workflows. Register Web features a user-friendly interface with the system. Register Web also provides information on system executions and data so that the user is able to find common information from an HR workflow.
 
-## Dependências
+## Dependencies
 
 - Angular CLI 8.3.5
 - Yarn 1.17.3
 - Node.JS 10.16.3
 
-## Configuração
+## Configuration
 
-A configuração da Front de Cadastro se dá por meio de variáveis de ambiente do
-sistema operacional. Portanto a configuração deverá ser feita nas configurações
-de ambiente do _container_.
+Register Web configuration is done through operating system environment variables. Therefore the configuration must be done in the container environment settings.
 
-As configurações disponíveis são:
+The available settings are:
 
-- `REGISTER_API`: URL da API de Cadastro.
+- `REGISTER_API`: Register API URL.
+- `VACATION_API`: Vacation API URL.
+- `PAYCHECK_API`: Paycheck API URL.
 
-Caso tenha dúvidas de como configurar variáveis de ambiente verifique em:
+If you have questions about how to set environment variables check in:
 
-- [Variáveis de Ambiente - Docker](https://serverascode.com/2014/05/29/environment-variables-with-docker.html)
+- [Environment Variables - Docker](https://serverascode.com/2014/05/29/environment-variables-with-docker.html)
 
-**OBS**: Lembrando que o sistema foi desenvolvido para execução em ambientes Linux
-e Docker. Não há suporte oficial para Windows.
+**Observation**: Remembering that the system was developed to run in Linux and Docker environments. No official support for Windows.
 
-## Desenvolvimento
+## Development
 
-### Instalando as Dependências
+### Installing the Dependencies
 
-Para instalar as dependências de desenvolvimento certifique-se de que as
-dependências chaves do projeto (`nodejs`, `angular-cli` e `yarn`) estão instaladas.
-Caso estejam, basta executar o comando abaixo:
+To install development dependencies make sure that the key project dependencies (`nodejs`,` angular-cli` and `yarn`) are installed. If so, just run the command below:
 
 ```shell
 yarn install
 ```
 
-O **yarn** irá fazer a instalação de todos os pacotes presentes no arquivo `package.json`
-e criará uma pasta `node_modules` com os arquivos das dependências.
+At this point **yarn** will install all packages present in the `package.json` file and create a `node_modules` folder with the dependency files.
 
-**OBS**: Caso queira isolar versões do `nodejs` e dependências entre projetos,
-visite o site do projeto [NVM](http://nvm.sh), um gerenciador de versões do node.
+**Observation**: If you want to isolate `nodejs` versions and dependencies between projects, visit the [NVM](http://nvm.sh) project website, a node version manager.
 
-### Configurando as Variáveis de Ambiente
+### Setting the Environment Variables
 
-Para execução em desenvolvimento é preciso configurar as variáveis de ambiente
-do projeto. Elas estão no arquivo `environment.ts` localizado em
-`<project-path>/src/environments`, e devem ser configuradas da seguinte forma:
+For development execution you need to set the environment variables of the project. They are in the `environment.ts` file located at `<project-path>/src/environments`, and should be set as follows:
 
 ```javascript
 export const environment = {
   production: false,
-  REGISTER_API: "https://0.0.0.0:1234/api"
+  REGISTER_API: "https://0.0.0.0:1234/register/api",
+  VACATION_API: "https://0.0.0.0:1234/vacation/api",
+  PAYCHECK_API: "https://0.0.0.0:1234/paycheck/api",
 };
 ```
 
-Lembrando que a `REGISTER_API` deve ser a URL da API de Cadastro.
+Remembering that `REGISTER_API`, `VACATION_API` and `PAYCHECK_API` must be the URL of the APIs deployed.
 
-### Execução Local
+### Local Deploy
 
-Para execução local do sistema, siga o roteiro abaixo (considerando que as dependências
-foram instaladas e as variáveis de ambiente estão devidamente configuradas):
+For local system execution, follow the script below (assuming that the dependencies have been installed and the environment variables are properly set):
 
 ```shell
 ng serve
 ```
 
-Com isso o sistema será executado no _localhost_ e estará disponível no endereço
-`http://0.0.0.0:4200/`. Dessa forma é possível testar as novas implementações e
-a cada modificação a aplicação vai recarregar as alterações automaticamente.
+This will run the system on localhost and will be available at the address `http://0.0.0.0:4200/`. This way you can test the new implementations and with each modification the application will reload the changes automatically.
 
-## Testes
+## Tests
 
-### Executando Testes Unitários
+### Running Unit Tests
 
-Para execução de testes unitários o sistema utiliza do [Karma](https://karma-runner.github.io/latest/index.html),
-caso as dependências já estejam instaladas, basta executar:
+To perform unit tests the system uses [Karma](https://karma-runner.github.io/latest/index.html), if the dependencies are already installed, simply run:
 
 ```shell
 ng test
 ```
 
-Caso você queira executar apenas uma vez adicione a flag `--watch=false`. Caso
-contrário o sistema ficará observando alterações para testá-las.
+If you only want to run once add the flag `--watch=false`. Otherwise the system will be watching for changes to test them.
 
-### Executando Testes Ponta-a-Ponta
+### Running End-to-End Tests
 
-Para execução dos testes ponta-a-ponta (_E2E_) o sistema do [Protractor](https://www.protractortest.org/#/),
-caso as dependências já estejam instaladas, basta executar:
+To perform end-to-end (E2E) testing the system uses [Protractor](https://www.protractortest.org/#/), if the dependencies are already installed, simply run:
 
 ```shell
 ng e2e
 ```
 
-## Construção
+## Build
 
-Para fazer a construção do serviço do FrontEnd Register basta seguir o roteiro abaixo:
+To build the Register Web service just follow the script below:
 
 ```shell
 docker build -t frint-register:<version> .
 ```
 
-Definindo a versão em `<version>`. E.g.: `latest`, `stable`, `alpha`, `1.0.0` e etc.
+Setting the version on `<version>`. E.g.: `latest`, `stable`, `alpha`, `1.0.0` and etc.
 
-Verifique se foi feito o login no serviço do [docker hub](https://hub.docker.com/),
-caso não execute o comando do `docker login`.
+Make sure you have logged in to the [docker hub](https://hub.docker.com/) service, if you do not run the `docker login` command.
 
 ```shell
 docker push front-register:<version>
 ```
 
-Por fim, caso a execução do sistema será feita pelo _container_ docker construído
-execute:
+Finally, if the system will be executed by the built docker container, execute:
 
 ```shell
 docker run -d --name front-register -e .env front-register
 ```
 
-Caso queira fazer a construção do sistema por meio do Angular CLI para servir via _host_
-ao invés de _containers_, use o seguinte comando:
+If you want to build the system through Angular CLI to serve via host instead of containers, use the following command:
 
 ```shell
 ng build
 ```
 
-Os aterfatos da construção serão armazenados na pasta `dist/`. Use a flag `--prod`
-para construir uma versão de produção. Para executar basta servir via `nginx` ou
-`apache` os artefatos presentes na pasta `dist/`.
+The build resources will be stored in the `dist/` folder. Use the `--prod` flag to build a production version. To execute simply serve via `nginx` or `apache` the resource present in the `dist/` folder to the web.
 
-**OBS**: Pressupõe que as configurações estão listadas no arquivo `.env`. Para
-mais configurações, opções de execução e a documentação complementar acesse [Docker](https://docs.docker.com/)
+**Observation**: Assumes that the settings are listed in the `.env` file. For more settings, execution options, and supplemental documentation, go to [Docker](https://docs.docker.com/)
