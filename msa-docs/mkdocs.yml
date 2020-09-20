@@ -58,7 +58,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Solution:
-      - About: solution/about-rh.md
+      - Overview: solution/overview.md
       - Architecture: solution/architecture.md
   - Modules:
       - Auth API: modules/api-auth.md
@@ -72,3 +72,4 @@ nav:
       - Paycheck API Blueprint: interfaces/api-paycheck.md
       - Register API Blueprint: interfaces/api-register.md
       - Vacation API Blueprint: interfaces/api-vacation.md
+  - About: about-rh.md

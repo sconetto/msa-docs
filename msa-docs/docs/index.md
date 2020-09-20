@@ -1,11 +1,16 @@
-# MSA Docs - Study Case: HR System
+# MSA Docs Study Case: HR System
 
-In this repository is an instance of the proposal of framework for the documentation of systems built using microservices, as proposed in the article **Microservices Documentation Proposal**[^1]. Therefore the navigation represents an instance in a case study of the HR system, in which it was tested for framework validation in the article.
+This study case contains the HR System documentation, which is a fictional human resources system focused on payroll features of the MARVEL[^1] organization.
+In MARVEL, the human resources area is subdivided into three main areas: registration and maintenance of functional records, payment and benefits to employees, and personnel development.
 
-In this framework, the documentation is build according to the desired view. The following structure describes how the structure of the documents in this system is arranged according to the strategy of the views:
+Despite this focus on payroll, the system has features of the employees registering domain to allow the registration of the employees that will be considered in MARVEL's organization payroll.
+For the system user, the system has two macro requirements:
 
-- `Solution` - Documentation of the software design solution level.
-- `Modules` - Documentation of individual architecture modules.
-- `Interface` - Documentation of module interfaces and system interactions.
+1. To function as HR management system, and;
 
-[^1]: Insert article full text link.
+2. Allow integration of other systems with the data managed on the system.
+
+This is a web-based system built on the **Microservice Architecture**, consisting of various services and user interfaces, as described in this documentation.
+Despite this modularization, the system is viewed by the user as a single software, so that the modularization is not perceived.
+
+[^1]: Fictional Organization
