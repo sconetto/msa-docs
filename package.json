@@ -5,7 +5,7 @@
   "main": "msa-docs/mkdocs.yml",
   "dependencies": {},
   "devDependencies": {
-    "standard-version": "^7.0.0"
+    "standard-version": "^8.0.1"
   },
   "scripts": {
     "test": "echo \"No test specified\" && exit 1",
